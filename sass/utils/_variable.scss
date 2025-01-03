@@ -1,0 +1,77 @@
+/* ПЕРЕМЕННЫЕ - в виде КАРТЫ */
+$colors: (
+'main-text': #757575,
+'second-text': #212121,
+'acsent': #2196f3,
+'main-white': #ffffff,
+'background-grey': #2f303a,
+'background-section': #f5f4fa,
+'main-black': #000000,
+'text-footer-tel': rgba(255, 255, 255, 0.6),
+'stroke-index': #ececec,
+'stroke-portfolio': #eeeeee,
+'stroke-client': #afb1b8,
+);
+
+
+/* Функция получения цвета из карты */ 
+@function getColor($key) {
+    @return map-get($colors, $key);
+}
+
+/*========================================*/ 
+/* ПЕРЕМЕННЫЕ - в виде SACC-переменных */ 
+$main-text-color: #757575;
+$second-text-color: #212121;
+$acsent-color: #2196f3;
+$main-white-color: #ffffff;
+$background-grey-color: #2f303a;
+$background-section-color: #f5f4fa;
+$main-black-color: #000000;
+$text-footer-tel-color: rgba(255, 255, 255, 0.6);
+$stroke-index-color: #ececec;
+$stroke-portfolio-color: #eeeeee;
+$stroke-client-color: #afb1b8;
+
+/*========================================*/
+/* ПЕРЕМЕННЫЕ - в виде CSS-переменных */
+/* :root - специфичный аналог селектора <html> в CSS*/
+/* Указываются */
+/* CSS-переменные (кастомные свойства) */
+:root {
+    /* #757575 - p, header - a(email) и a(tel) - не активные */
+    --main-text-color: #757575;
+    /* #212121 - h2, h3, a(nav in header) - не активный*/
+    --second-text-color: #212121;
+    /* #2196F3 - logo, a(nav):hover, button(background)*/
+    --acsent-color: #2196f3;
+    /* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+    --main-white-color: #ffffff;
+    /* #2F303A - background-hero, background-footer */
+    --background-grey-color: #2f303a;
+    /* #F5F4FA - background-section-team */
+    --background-section-color: #f5f4fa;
+    /* #000000 - logo(header)*/
+    --main-black-color: #000000;
+    /* rgba(255,255,255,0.6) - adress (tel,email) */
+    --text-footer-tel-color: rgba(255, 255, 255, 0.6);
+    /* #ECECEC - обводка-header + line в index.html (между header и main)*/
+    --stroke-index-color: #ececec;
+    /* #EEEEEE - обводка карточки в portfolio.html */
+    --stroke-portfolio-color: #eeeeee;
+    /* #AFB1B8 - обводка карточки в разделе Клиенты */
+    --stroke-client-color: #afb1b8;
+}
+
+/* Палитра основных цветов */
+/* #757575 - p, a(email) и a(tel) - не активные */
+/* #212121 - h2, h3, a(nav in header) - не активный*/
+/* #2196F3 - logo, a(nav):hover, button(background)*/
+/* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+/* #2F303A - background-hero, background-footer */
+/* #F5F4FA - background-section-team */
+/* #000000 - logo(header)*/
+/* rgba(255,255,255,0.6) - adress (tel,email) */
+/* #ECECEC - обводка-header + line в index.html (между header и main)*/
+/* #EEEEEE - обводка карточки в portfolio.html */
+/* #AFB1B8 - обводка карточки в разделе Клиенты */

@@ -1,0 +1,80 @@
+/* Клиенты */
+.client__container {
+    /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
+    @extend %container;
+}
+
+/* Список клиентов */
+.client__list {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    /* Расстояние между картинками - логотипами клиентов */
+    gap: 30px;
+}
+
+/* Блок логотипа с рамкой */
+.client__link {
+    width: 170px;
+    height: 92px;
+    border-color: var(--stroke-client-color);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: border-color, border-width;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+/* Картинка с логотипом */
+.client__icon {
+    /* Все размеры иконок заданы в теге SVG в HTML-файле */
+    /* max-height: 47px; */
+    /* max-width: 94px; */
+    /* Рамка для отслеживания размера иконки */
+    /* outline: #2196f3 solid 1px; */
+    /* Делаем блочный элемент,чтобы убрать стандартный отступ снизу картинки*/
+    display: block;
+    fill: var(--stroke-client-color);
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: fill;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+/* При нажатии на иконку с логотипом клиента */
+.client__link:hover,
+.client__link:focus {
+    /* Новое свойство : */
+    border-color: var(--acsent-color);
+}
+
+/* Для полностью встроенного SVG (на примере Клиент 1) */
+/* .client-svg:hover .path {
+  fill: var(--acsent-color);
+} */
+
+.client__link:hover .client__icon,
+.client__link:focus .client__icon {
+    /* Новое свойство : */
+    fill: var(--acsent-color);
+}

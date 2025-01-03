@@ -1,0 +1,188 @@
+/* footer */
+.page-footer {
+    background-color: var(--background-grey-color);
+}
+
+.page-footer__container {
+    /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
+    @extend %container;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.page-footer__logo {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Почтовый адрес */
+.address {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71428;
+    /* 24px */
+    letter-spacing: 0.03em;
+}
+
+.address__description {
+    margin-bottom: 9px;
+    color: var(--main-white-color);
+}
+
+/* Email */
+.address__email {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--text-footer-tel-color);
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+    /* Параметры СSS-перехода : */
+    /* Анимация - transform - время - функция распределения времени  */
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.address__email:hover,
+.address__email:focus {
+    /* Новое свойство : */
+    color: var(--acsent-color);
+}
+
+/* Телефон */
+.address__tel {
+    display: block;
+    color: var(--text-footer-tel-color);
+
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+
+    /* Параметры СSS-перехода : */
+    /* Анимация - transform - время - функция распределения времени  */
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.address__tel:hover,
+.address__tel:focus {
+    /* Новое свойство : */
+    color: var(--acsent-color);
+}
+
+.social__title {
+    margin-bottom: 20px;
+    color: var(--main-white-color);
+    text-transform: uppercase;
+}
+
+
+/* Секция с окном - Подпишитесь на рассылку */
+.newsletter__title {
+    margin-bottom: 20px;
+    color: var(--main-white-color);
+    /* Перевод текста в буквы верхнего регистра */
+    text-transform: uppercase;
+}
+
+/* Элемент input в footer */
+.input-email-newsletter {
+    min-width: 358px;
+    padding: 14px 16px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* Шрифт  */
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    /* 20 px*/
+    letter-spacing: 0.03em;
+
+    background-color: rgba(33, 150, 243, 0);
+    /* color: rgba(255, 255, 255, 0.6); */
+}
+
+.input-email-newsletter:focus {
+    color: rgba(255, 255, 255, 1);
+    /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+    outline: none;
+    /* Меняем цвет рамки */
+    border-color: var(--acsent-color);
+}
+
+/* Цвет текста placeholder (E-mail) в поле input */
+.input-email-newsletter::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Кнопка "Подписаться" в футере */
+.newsletter__button {
+    margin-left: 12px;
+    display: inline-flex;
+    align-items: center;
+    /* Внутренние отступы от края кнопки до текста */
+    padding-left: 28px;
+    padding-top: 10px;
+    padding-right: 28px;
+    padding-bottom: 10px;
+
+    /* Радиус скругления углов кнопки */
+    border-radius: 4px;
+    /* Обводка кнопки - отсутствует */
+    border: none;
+
+    color: var(--main-white-color);
+    background-color: var(--acsent-color);
+
+    /* Шрифт названия кнопки */
+    /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875;
+    /* 30 px*/
+    letter-spacing: 0.06em;
+
+    /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+    cursor: pointer;
+
+    /*  Set transition values  */
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color, background-color, fill;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+
+    /* Оформление иконки кнопки "Подписаться" в футере */
+    & .icon {
+        margin-left: 10px;
+        fill: var(--main-white-color);
+    }
+
+    /* При :hover/:focus на кнопку - меняются цвета*/ 
+    &:hover,
+    &:focus {
+        /* Новое свойство : */
+        color: var(--main-black-color);
+        background-color: var(--main-white-color);
+    }
+
+    /* /* При :hover/:focus на кнопку - Изменение фона иконки кнопки */
+    &:hover .icon,
+    &:focus .icon {
+        /* Новое свойство : */
+        fill: var(--acsent-color);
+    }
+}
+
+
+
+
+

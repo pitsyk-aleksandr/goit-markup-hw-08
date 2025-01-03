@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/form-input.css" />
+  </head>
+  <body>
+    <form class="form new-form">
+      <div class="form-field">
+        <label class="form-label" for="name">Имя</label>
+        <input
+          class="form-input"
+          type="text"
+          name="user-name"
+          id="name"
+          autofocus
+          placeholder="Александр"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="tel">Телефон</label>
+        <input
+          class="form-input"
+          type="tel"
+          name="user-tel"
+          id="tel"
+          placeholder="+38-067-111-11-22"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="mail">Email</label>
+        <input
+          class="form-input"
+          type="email"
+          name="user-email"
+          id="mail"
+          placeholder="my@mail.com"
+        />
+      </div>
+
+      <div class="form-field up">
+        <input class="form-input up" type="text" name="user-text" id="up-label" placeholder=" " />
+        <label class="form-label up" for="up-label">Выезд label </label>
+      </div>
+
+      <!-- Вместо fieldset для возможности оформления в CSS - используем <div role="group"> -->
+      <div role="group" class="group">
+        <h2 class="group-title">Язык программирования</h2>
+        <ul class="lang-options">
+          <li>
+            <input type="checkbox" name="lang" value="html" id="lang-html" checked />
+            <label for="lang-html">HTML</label>
+          </li>
+          <li>
+            <input type="checkbox" name="lang" value="css" id="lang-css" />
+            <label for="lang-css">CSS</label>
+          </li>
+          <li>
+            <input type="checkbox" name="lang" value="js" id="lang-js" checked />
+            <label for="lang-js">JavaScript</label>
+          </li>
+        </ul>
+      </div>
+
+      <div role="group" class="group">
+        <h2 class="group-title">Уровень знаний</h2>
+        <ul class="level-options">
+          <li>
+            <input type="radio" name="level" value="1" id="level-1" />
+            <label for="level-1">Первый</label>
+          </li>
+          <li>
+            <input type="radio" name="level" value="2" id="level-2" checked />
+            <label for="level-2">Второй</label>
+          </li>
+          <li>
+            <input type="radio" name="level" value="3" id="level-3" />
+            <label for="level-3">Третий</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-field">
+        <label for="date-work">Дата работы</label>
+        <input type="date" name="user-date" id="date-work" min="2024-12-05" max="2024-12-21" />
+      </div>
+
+      <div class="form-field">
+        <label for="time-work">Время - </label>
+        <input type="time" name="user-time" id="time-work" />
+      </div>
+
+      <!-- Указание даты и времени с ограничением ввода -->
+      <div class="form-field">
+        <label for="date-time-work">Дата и время работы </label>
+        <input
+          type="datetime-local"
+          name="user-time"
+          id="date-time-work"
+          min="2024-11-18T15:00"
+          max="2100-05-18T15:00"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="load-file">Загрузить файл в pdf</label>
+        <input type="file" name="pdf" id="load-file" />
+      </div>
+
+      <div class="form-field">
+        <!-- Запрет возможности изменения размеров - в CSS - resize: none -->
+        <label for="comment">Комментарии</label>
+        <textarea
+          class="comment"
+          name="comment"
+          id="comment"
+          rows="5"
+          placeholder="Оставьте свои комментарии"
+        ></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" name="ok-policy" id="policy" />
+        <label for="policy">Соглашаюсь на все условия</label>
+      </div>
+
+      <button type="submit">Отправить данные</button>
+    </form>
+
+    <!-- Скрипт для вывода в консоль информацию о вводе данных -->
+    <script>
+      (() => {
+        document.querySelector('.new-form').addEventListener('submit', e => {
+          e.preventDefault();
+          new FormData(e.currentTarget).forEach((value, name) => console.log('${name}: ${value}'));
+        });
+      })();
+    </script>
+  </body>
+</html>

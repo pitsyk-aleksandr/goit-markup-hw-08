@@ -1,0 +1,197 @@
+/* Стили для page-header */
+
+/* Header - на всю длину */
+.page-header {
+
+    /* Фиксированная верхняя строка меню */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    /* page-header ставится поверх ВСЕХ слоев */
+    z-index: 999;
+
+    min-height: 80px;
+    /* Нижняя граница элемента */
+    border-bottom: var(--stroke-index-color) solid 1px;
+    background-color: var(--main-white-color);
+}
+
+/* Верхняя строка - header */
+.page-header__container {
+    /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
+    @extend %container;
+
+    display: flex;
+    /* Установка всех элементов в строку */
+    flex-direction: row;
+    /* Выравнивание всех элементов контейнера по второстепенной оси - по центру */
+    align-items: center;
+    /* Выравнивание элементов по главной оси  */
+    justify-content: space-between;
+}
+
+
+/* Стилизация header */
+/* Стилизация меню .nav-site */
+.nav-site {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    /* Расстояние между пунктами меню навигации */
+    /* gap: 50px; */
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+/* Расстояние между пунктами меню навигации */
+.nav-site__item:not(:last-child) {
+    margin-right: 50px;
+}
+
+.nav-site__link {
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 28px;
+
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+
+    /* Цвет текста */
+    color: var(--second-text-color);
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+/* При наведении мышки или при получении фокуса */
+.nav-site__link:hover,
+.nav-site__link:focus {
+    /* Новое свойство */
+    color: var(--acsent-color);
+}
+
+/* Правило - другой цвет ссылки , если ссылка указывает на текущую страницу */
+/* Обязательно .link.current БЕЗ ПРОБЕЛА, тогда применяется class="link current" */
+.nav-site__link--current {
+    /* Для абсолютного позиционирования подчеркивания текущего пункта меню */
+    position: relative;
+
+    color: var(--acsent-color);
+}
+
+/* Подчеркивание пункта меню c названием текущей страницы*/
+.nav-site__link--current::after {
+    /* Абсолютное позиционирование */
+    position: absolute;
+    /* Пустой контент для ::after */
+    content: '';
+    /* Позиционирование прямоугольничка вниз пункта меню */
+    bottom: 0;
+    /* Делаем прямоугольный блок */
+    display: block;
+    /* Ширина блока - 100% ширины .nav-site .link.current */
+    width: 100%;
+    /* Высота этого блока подчеркивания */
+    height: 4px;
+    /* Радиус скругления */
+    border-radius: 2px;
+    /* Цвет фона */
+    background-color: var(--acsent-color);
+    /* В обычном состоянии - НЕ прозрачная */
+    opacity: 1;
+}
+
+/* Стилизация меню .nav-adress */
+.nav-adress {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* Расстояние между пунктами меню навигации */
+    /* gap: 50px; */
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.nav-adress__link {
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    /* Цвет текста в обычном состоянии */
+    color: var(--main-text-color);
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+/* Расстояние между пунктами меню навигации - задаем через селектор соседа */
+.nav-adress__item+.nav-adress__item {
+    margin-left: 30px;
+}
+
+/* При наведении мышки или при получении фокуса - email & tel  */
+.nav-adress__link:hover,
+.nav-adress__link:focus {
+    /* Новое свойство : */
+    color: var(--acsent-color);
+}
+
+/* Иконка перед - email & tel */
+.nav-adress__icon {
+    /* Отступ иконки от пункта с адресом */
+    margin-right: 10px;
+
+    /* Цвет заполнения иконки */
+    fill: var(--stroke-client-color);
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: fill;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+/* Изменение цвета - Иконка перед - email & tel */
+.nav-adress__link:hover .nav-adress__icon,
+.nav-adress__link:focus .nav-adress__icon {
+    /* Новое свойство : */
+    /* Цвет заполнения иконки */
+    fill: var(--acsent-color);
+}
+
+/* Вставляем иконки через псевдоэлемент ::before */
+/* .email.link::before {
+  display: inline-flex;
+  content: '';
+  width: 16px;
+  height: 12px;
+  margin-right: 10px;
+  background-image: url(../icon/envelope.svg);
+  background-size: contain;
+  background-position: center;
+} */

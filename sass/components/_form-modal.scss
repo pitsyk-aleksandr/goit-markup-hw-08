@@ -1,0 +1,336 @@
+/* Фон всего экрана, если появляеся модальное окно */
+.backdrop {
+    /* Задаем фиксированную позицию */
+    position: fixed;
+    /* Позиционирование - верхний левый угол */
+    top: 0px;
+    left: 0px;
+    /* Занимает всю ширину и высоту экрана */
+    width: 100%;
+    height: 100%;
+    /* Цвет фона - черный с прозрачностью 20% (как в макете) */
+    background-color: rgba(0, 0, 0, 0.2);
+
+    /* Полная НЕ прозрачность и backdrop, и вложенных элементов */
+    opacity: 1;
+
+    /* Параметры СSS-перехода : */
+    /* Анимация - opacity - время - функция распределения времени  */
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Фон в состоянии спрятанности (когда установлен класс .is-hidden) */
+.backdrop.is-hidden {
+    /* Анимируемое свойство - прозрачность и backdrop, и вложенных элементов */
+    opacity: 0;
+    /* Возможность пропускать через backdrop события (клики и т.п.) */
+    pointer-events: none;
+}
+
+/* Модальное окно в состоянии спрятанности (когда у фона класс .is-hidden) */
+.backdrop.is-hidden .form-modal {
+    /* Анимируемое свойство - transform */
+    /* Состоит из 2- частей, указываемых через пробел */
+    /* translate(-50%, -50%) - подцентрирование окна */
+    /* scale(0) - масштабирование 0,8:1 */
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Обычное состояние модального окна */
+.form-modal {
+    /* Абсолютное позиционирование */
+    position: absolute;
+    /* Центрирование модального окна */
+    top: 50%;
+    left: 50%;
+
+    /* Анимируемое свойство - transform */
+    /* Состоит из 2- частей, указываемых через пробел */
+    /* translate(-50%, -50%) - подцентрирование окна */
+    /* scale(1) - масштабирование 1:1 */
+    transform: translate(-50%, -50%) scale(1);
+
+    /* Минимальные размеры - ширина и высота */
+    min-width: 528px;
+    min-height: 250px;
+    /* Внутренние отступы */
+    padding: 40px;
+
+    /* Радиус границы */
+    border-radius: 4px;
+
+    color: var(--second-text-color);
+    background-color: var(--main-white-color);
+
+    /* Шрифт  */
+    font-family: Roboto, sans-serif;
+
+    /* Многослойная тень  */
+    box-shadow: 0px 1px 3cm 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+
+    /* Параметры СSS-перехода : */
+    /* Анимация - transform - время - функция распределения времени  */
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Заголовок модального окна */
+.form-modal__title {
+    text-align: center;
+    /* Шрифт  */
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    /* 30 px*/
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+}
+
+/* Контейнер для всех полей ввода, кроме условий */
+.form-modal__inputs {
+    margin-bottom: 20px;
+}
+
+/* Поля ввода (label+input) */
+.form-modal__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Поля ввода - метки - label */
+.form-modal__label {
+    margin-bottom: 4px;
+    /* Шрифт  */
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    /* 30 px*/
+    letter-spacing: 0.01em;
+    color: var(--main-text-color);
+}
+
+/* Поля ввода - input */
+.form-modal__input {
+    width: 100%;
+
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 12px;
+    padding-left: 42px;
+
+    /* Шрифт  */
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    /* line-height: 1.5; 30 px */
+    letter-spacing: 0.03em;
+
+    border-color: rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    color: var(--main-black-color);
+}
+
+/* Поля ввода - input - при  :focus*/
+.form-modal__input:focus {
+    /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+    outline: none;
+    /* Меняем цвет рамки */
+    border-color: var(--acsent-color);
+}
+
+/* Контейнер для поля input (для вставки иконки) */
+.form-modal__thumb-input {
+    display: block;
+    position: relative;
+}
+
+/* Иконка в input  */
+.form-modal__thumb-input .icon {
+    display: block;
+    margin: 0;
+    /* Даем абсолютное позиционирование */
+    position: absolute;
+    /* Центрируем по оси Y */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Даем отступ слева по оси X */
+    left: 12px;
+
+    fill: var(--second-text-color);
+}
+
+.form-modal__input:focus+.icon {
+    fill: var(--acsent-color);
+}
+
+/* Поле - Комментарии */
+.form-modal__comment {
+    padding: 12px 16px;
+    /* Запрет на изменение размера поля с комментариями */
+    resize: none;
+}
+
+.form-modal__comment::placeholder {
+    /* Шрифт  */
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    /* 30 px*/
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+/* Поля ввода - textarea - при  :focus*/
+.form-modal__comment:focus {
+    /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+    outline: none;
+    /* Меняем цвет рамки */
+    border-color: var(--acsent-color);
+}
+
+/* Отметка о принятии условий */
+.form-modal__field-policy {
+    /* Делаем флекс для иконки и текста и выравниваем по вертикали */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* Отступ от комментария */
+    margin-bottom: 30px;
+}
+
+.form-modal__label-policy {
+    /* Шрифт метки */
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.714;
+    /* 24 px*/
+    letter-spacing: 0.03em;
+
+    color: var(--main-text-color);
+}
+
+/* Ссылка на условия договора */
+.form-modal__label-policy a {
+    color: var(--acsent-color);
+}
+
+/* Иконка метки принятия условий */
+.form-modal__checkbox-input {
+    /* Убираем стандартный квадратик от браузера */
+    /* Новое свойство : */
+    appearance: none;
+    position: absolute;
+}
+
+/* Пользовательская иконка checkbox в невыбранном состоянии */
+.form-modal__checkbox-icon {
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    margin-right: 7px;
+    background-image: url(../icon/0-svg-original/check-0.svg);
+    background-size: contain;
+}
+
+/* Замена иконки, если input:checked - выбран */
+.form-modal__checkbox-input:checked+.form-modal__checkbox-icon {
+    background-image: url(../icon/0-svg-original/check-1.svg);
+}
+
+/* Кнопка  */
+.form-modal__button-submit {
+    /* Центрирование блока */
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Внутренние отступы от края кнопки до текста */
+    padding-left: 52px;
+    padding-top: 10px;
+    padding-right: 52px;
+    padding-bottom: 10px;
+
+    /* Радиус скругления углов кнопки */
+    border-radius: 4px;
+    /* Обводка кнопки - отсутствует */
+    border: none;
+
+    color: var(--main-white-color);
+    background-color: var(--acsent-color);
+
+    /* Шрифт названия кнопки */
+    /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875;
+    /* 30 px*/
+    letter-spacing: 0.06em;
+
+    /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+    cursor: pointer;
+
+    /*  Set transition values  */
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+.form-modal__button-submit:hover,
+.form-modal__button-submit:focus {
+    /* Новое свойство : */
+    color: var(--main-black-color);
+}
+
+.form-modal__button-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: rgba(0, 0, 0, 0.1);
+
+    background-color: var(--main-white-color);
+
+    /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+    cursor: pointer;
+}
+
+.form-modal__icon-close {
+    /* Изображение делаем блочным элементом */
+    display: block;
+    /* Убираем наружные отступы */
+    margin: 0;
+    /* Заливка элемента */
+    fill: var(--main-black-color);
+}
+
+/* События при кнопке закрытия модального окна */
+.form-modal__button-close:hover {
+    /* Меняется цвет фона */
+    background-color: var(--acsent-color);
+}
+
+.form-modal__button-close:hover .form-modal__icon-close {
+    /* Меняется цвет иконки */
+    fill: var(--main-white-color);
+}

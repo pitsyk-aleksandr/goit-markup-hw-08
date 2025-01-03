@@ -1,0 +1,63 @@
+/* Группа ссылок на социальные сети */
+
+.social-links {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    width: 206px;
+    height: 44px;
+}
+
+.social-links__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    border: 1px solid var(--main-white-color);
+
+    cursor: pointer;
+
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: background-color;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+.social-links__icon {
+    display: block;
+    margin: 0;
+    fill: var(--stroke-client-color);
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: fill;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+.social-links__link:hover,
+.social-links__link:focus {
+    /* Новое свойство : */
+    background-color: var(--acsent-color);
+}
+
+.social-links__link:hover .social-links__icon,
+.social-links__link:focus .social-links__icon {
+    /* Новое свойство : */
+    fill: var(--main-white-color);
+}

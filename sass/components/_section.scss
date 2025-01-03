@@ -1,0 +1,25 @@
+/* Секции  */
+
+/* Стандартная секция - свойства */
+.section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+/* Секция без нижнего внутреннего отступа */
+.section.no-padding-bottom {
+    padding-bottom: 0;
+}
+
+/* Заголовок секции */
+.section-title {
+    margin-bottom: 50px;
+
+    color: var(--second-text-color);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    /* Выравнивание текста по центру */
+    text-align: center;
+}

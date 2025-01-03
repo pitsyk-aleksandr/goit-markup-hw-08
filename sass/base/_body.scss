@@ -1,0 +1,41 @@
+/* Стили для всего сайта - Тело сайта */
+
+body {
+    /* Задание всем элементам свойства box-sizing: border-box; */
+    box-sizing: border-box;
+
+    /* Отступ для фиксированного меню Правильное значение будет задано через <script>  */
+    padding-top: 80px;
+
+    /* Обнуление внешних отступов для тела сайта */
+    margin: 0px;
+
+    /* Получение цвета из карты через функцию */ 
+    background-color: getColor('main-white');
+    /* Получение цвета из SACC-переменной*/ 
+    color: $main-text-color;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+
+
+/* Обнуление отступов для заголовков и абзаца */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Наследование свойств для элемента от ближайшего предка */
+/* *, */
+/* *::before, */
+/* *::after { */
+/* box-sizing: inherit; */
+/* } */
+

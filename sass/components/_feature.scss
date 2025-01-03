@@ -1,0 +1,92 @@
+/* feature - Особливості - Преимущества */
+.feature__container {
+    /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
+    @extend %container;
+}
+
+/* Только для секции Преимущества убирает вывод на экран заголовка */
+.feature__section-title {
+    /* Прячем (скрываем) заголовок секции */
+    /* Оба варианта делают одно и то же */
+    visibility: hidden;
+    opacity: 0;
+    /* За счет отрицательного внешнего отступа - убираем высоту текста */
+    margin-top: -43px;
+    /* Убираем нижний отступ заголовка */
+    margin-bottom: 0;
+}
+
+
+.feature__list {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
+    /* gap: 30px; */
+    row-gap: 30px;
+    column-gap: 30px;
+}
+
+/* ====================================================== */
+/* Картинка для каждого преимущества - в .item::before */
+/* .feature-list .item::before {
+  /* content: ''; */
+/* height: 120px; */
+/* Картинка на всю ширину блока */
+/* display: block; */
+/* background-color: var(--background-section-color); */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+/* background-size: 70px 70px; */
+/* margin-bottom: 30px; */
+/* } */
+
+/* Иконки для каждого преимущества */
+/* .feature-list .item.antenna::before { */
+/* background-image: url(../icon/antenna.svg); */
+/* } */
+/* ====================================================== */
+
+/* При вставке иконки через Inline-SVG */
+.feature__div-icon {
+    display: flex;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-section-color);
+    margin-bottom: 30px;
+}
+
+.feature__icon {
+    display: block;
+    margin: 0;
+}
+
+/* Название преимущества */
+.feature__title {
+    margin-bottom: 10px;
+
+    color: var(--second-text-color);
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+}
+
+/* Для всех четных элементов списка Преимущества */
+/* .feature-list > .item:nth-child(2n) { */
+/* background-color: var(--acsent-color); */
+/* } */
+
+/* Описание преимущества */
+.feature__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71428;
+    /* 24px */
+    letter-spacing: 0.03em;
+}

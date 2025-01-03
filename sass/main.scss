@@ -1,0 +1,27 @@
+/* Базовые настройки */
+@import "base/body";
+/* Шрифты */
+@import "base/font";
+/* Переменные */
+@import "utils/variable";
+/* Утилиты - Шаблоны */
+@import "utils/placeholder";
+/* Компоненты */
+@import "components/logo";
+@import "components/page-header";
+
+@import "components/section";
+@import "components/hero";
+@import "components/social-links";
+@import "components/feature";
+@import "components/work";
+@import "components/team";
+@import "components/client";
+
+@import "components/portfolio";
+@import "components/filter";
+@import "components/project";
+
+@import "components/page-footer";
+
+@import "components/form-modal";

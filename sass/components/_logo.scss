@@ -1,0 +1,30 @@
+/* Логотип - общие свойства */
+.logo {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    font-family: 'Raleway', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: 3%;
+    /* Убрать подчеркивание для ссылки */
+    text-decoration: none;
+}
+
+/* Логотип - первая (синяя) часть текста */
+.logo__first {
+    color: var(--acsent-color);
+}
+
+/* Логотип - Вторая (черная) часть текста - в header */
+.logo__second {
+    color: var(--main-black-color);
+}
+
+/* Логотип - белая часть текста - в footer */
+.logo__second--white {
+    color: var(--main-white-color);
+}

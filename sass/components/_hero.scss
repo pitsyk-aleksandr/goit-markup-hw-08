@@ -1,0 +1,89 @@
+/* hero - Приветствие к кнопкой call-to-action */
+
+.hero {
+    /* Выравнивание блока по центру экрана */
+    margin-left: auto;
+    margin-right: auto;
+    /* Внутренние отступы блока до текста и кнопки */
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    /* Максимальная ширина блока по ширине картинки - это позволяет не изменять размер картинки */
+    max-width: 1600px;
+    /* Выравнивание заголовка и кнопки по центру */
+    text-align: center;
+    /* Обязательное свойство, если картинка не загрузится из сервера */
+    background-color: var(--background-grey-color);
+    /* Фоновый рисункок */
+    /* background-image: url(../images/hero.jpg); */
+    /* Фоновый рисункок и затемнение градиентом */
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)),
+        url(../images/hero.jpg);
+}
+
+.hero__title {
+    /* outline: tomato solid 1px; */
+    /* Обнуление внешних отступов, которые устанавлены для h1 по умолчанию */
+    margin-top: 0;
+    /* Расстояние до кнопки */
+    margin-bottom: 30px;
+
+    color: var(--main-white-color);
+
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.363;
+    letter-spacing: 0.06em;
+    /* Выравнивание этого текстового блока по центру */
+    text-align: center;
+}
+
+.hero__button {
+    /* Внутренние отступы от края кнопки до текста */
+    padding-left: 32px;
+    padding-top: 10px;
+    padding-right: 32px;
+    padding-bottom: 10px;
+
+    /* Радиус скругления углов кнопки */
+    border-radius: 4px;
+    /* Обводка кнопки - отсутствует */
+    border: none;
+
+    color: var(--main-white-color);
+    background-color: var(--acsent-color);
+
+    /* Шрифт названия кнопки */
+    /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.875;
+    /* 30 px*/
+    letter-spacing: 0.06em;
+
+    /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+    cursor: pointer;
+
+    /*  Set transition values  */
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color, background-color;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+.hero__button:hover,
+.hero__button:focus {
+    /* Новое свойство : */
+    color: var(--main-black-color);
+    background-color: var(--main-white-color);
+    /* transform: rotate(180deg); */
+}
+
+.hero__button:active {
+    /* Меняется цвет фона кнопки при нажатии на кнопку */
+    background-color: red;
+}

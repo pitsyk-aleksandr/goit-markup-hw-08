@@ -1,0 +1,1503 @@
+/* styles.css - старый файл стилей для ДЗ №2-№6 */
+
+/* :root - специфичный аналог селектора <html> в CSS*/
+/* Указываются */
+/* CSS-переменные (кастомные свойства) */
+:root {
+  /* #757575 - p, header - a(email) и a(tel) - не активные */
+  --main-text-color: #757575;
+  /* #212121 - h2, h3, a(nav in header) - не активный*/
+  --second-text-color: #212121;
+  /* #2196F3 - logo, a(nav):hover, button(background)*/
+  --acsent-color: #2196f3;
+  /* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+  --main-white-color: #ffffff;
+  /* #2F303A - background-hero, background-footer */
+  --background-grey-color: #2f303a;
+  /* #F5F4FA - background-section-team */
+  --background-section-color: #f5f4fa;
+  /* #000000 - logo(header)*/
+  --main-black-color: #000000;
+  /* rgba(255,255,255,0.6) - adress (tel,email) */
+  --text-footer-tel-color: rgba(255, 255, 255, 0.6);
+  /* #ECECEC - обводка-header + line в index.html (между header и main)*/
+  --stroke-index-color: #ececec;
+  /* #EEEEEE - обводка карточки в portfolio.html */
+  --stroke-portfolio-color: #eeeeee;
+  /* #AFB1B8 - обводка карточки в разделе Клиенты */
+  --stroke-client-color: #afb1b8;
+}
+
+/* Палитра основных цветов */
+/* #757575 - p, a(email) и a(tel) - не активные */
+/* #212121 - h2, h3, a(nav in header) - не активный*/
+/* #2196F3 - logo, a(nav):hover, button(background)*/
+/* #FFFFFF - background-page, h1, button(text), footer - logo, adress (почтовый адрес) */
+/* #2F303A - background-hero, background-footer */
+/* #F5F4FA - background-section-team */
+/* #000000 - logo(header)*/
+/* rgba(255,255,255,0.6) - adress (tel,email) */
+/* #ECECEC - обводка-header + line в index.html (между header и main)*/
+/* #EEEEEE - обводка карточки в portfolio.html */
+/* #AFB1B8 - обводка карточки в разделе Клиенты */
+
+/* Шрифты */
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Задание всем элементам свойства box-sizing: border-box; */
+html {
+  box-sizing: border-box;
+}
+
+/* Наследование свойств для элемента от ближайшего предка */
+/* *, */
+/* *::before, */
+/* *::after { */
+/* box-sizing: inherit; */
+/* } */
+
+/* Обнуление отступов для заголовков и абзаца */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Тело сайта */
+body {
+  /* Отступ для фиксированного меню Правильное значение будет задано через <script>  */
+  padding-top: 80px;
+
+  /* Обнуление внешних отступов для тела сайта */
+  margin: 0px;
+
+  background-color: var(--main-white-color);
+  color: var(--main-text-color);
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+}
+
+/* Утилиты */
+
+/* Класс для настройки всех перечней - может быть вторым классом в тегах ul */
+.list {
+  /* Сбросить все отступы по умолчанию */
+  margin: 0;
+  padding: 0;
+  /* Убрать первые точечки в неупорядоченном списке */
+  list-style: none;
+}
+
+/* Это класс, который ограничивает контент размером сетки и устанавливает отступы */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+}
+
+/* Header - на всю длину */
+.page-header {
+  /* Фиксированная верхняя строка меню */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  /* page-header ставится поверх ВСЕХ слоев */
+  z-index: 999;
+
+  min-height: 80px;
+  /* Нижняя граница элемента */
+  border-bottom: var(--stroke-index-color) solid 1px;
+  background-color: var(--main-white-color);
+}
+
+/* Верхняя строка - header */
+.page-header__container {
+  display: flex;
+  /* Установка всех элементов в строку */
+  flex-direction: row;
+  /* Выравнивание всех элементов контейнера по второстепенной оси - по центру */
+  align-items: center;
+  /* Выравнивание элементов по главной оси  */
+  justify-content: space-between;
+}
+
+/* Логотип - общие свойства */
+.logo {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 3%;
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+}
+
+/* Логотип - первая (синяя) часть текста */
+.logo__blue {
+  color: var(--acsent-color);
+}
+
+/* Логотип - Вторая (черная) часть текста - в header */
+.logo__black {
+  color: var(--main-black-color);
+}
+
+/* Логотип - белая часть текста - в footer */
+.logo__white {
+  color: var(--main-white-color);
+}
+
+/* Стилизация header */
+/* Стилизация меню .nav-site */
+.nav-site {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между пунктами меню навигации */
+  /* gap: 50px; */
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* Расстояние между пунктами меню навигации */
+.nav-site .item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.nav-site .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 28px;
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+
+  /* Цвет текста */
+  color: var(--second-text-color);
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+/* При наведении мышки или при получении фокуса */
+.nav-site .link:hover,
+.nav-site .link:focus {
+  /* Новое свойство */
+  color: var(--acsent-color);
+}
+
+/* Правило - другой цвет ссылки , если ссылка указывает на текущую страницу */
+/* Обязательно .link.current БЕЗ ПРОБЕЛА, тогда применяется class="link current" */
+.nav-site .link.current {
+  /* Для абсолютного позиционирования подчеркивания текущего пункта меню */
+  position: relative;
+
+  color: var(--acsent-color);
+}
+
+/* Подчеркивание пункта меню c названием текущей страницы*/
+.nav-site .link.current::after {
+  /* Абсолютное позиционирование */
+  position: absolute;
+  /* Пустой контент для ::after */
+  content: '';
+  /* Позиционирование прямоугольничка вниз пункта меню */
+  bottom: 0;
+  /* Делаем прямоугольный блок */
+  display: block;
+  /* Ширина блока - 100% ширины .nav-site .link.current */
+  width: 100%;
+  /* Высота этого блока подчеркивания */
+  height: 4px;
+  /* Радиус скругления */
+  border-radius: 2px;
+  /* Цвет фона */
+  background-color: var(--acsent-color);
+  /* В обычном состоянии - НЕ прозрачная */
+  opacity: 1;
+}
+
+/* Стилизация меню .nav-adress */
+.nav-adress {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между пунктами меню навигации */
+  /* gap: 50px; */
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.nav-adress .link {
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  /* Цвет текста в обычном состоянии */
+  color: var(--main-text-color);
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+/* Расстояние между пунктами меню навигации - задаем через селектор соседа */
+.nav-adress .item + .item {
+  margin-left: 50px;
+}
+
+/* При наведении мышки или при получении фокуса - email & tel  */
+.nav-adress .link:hover,
+.nav-adress .link:focus {
+  /* Новое свойство : */
+  color: var(--acsent-color);
+}
+
+/* Иконка перед - email & tel */
+.nav-adress .icon {
+  /* Отступ иконки от пункта с адресом */
+  margin-right: 10px;
+
+  /* Цвет заполнения иконки */
+  fill: var(--stroke-client-color);
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: fill;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+/* Изменение цвета - Иконка перед - email & tel */
+.nav-adress .link:hover .icon,
+.nav-adress .link:focus .icon {
+  /* Новое свойство : */
+  /* Цвет заполнения иконки */
+  fill: var(--acsent-color);
+}
+
+/* Вставляем иконки через псевдоэлемент ::before */
+/* .email.link::before {
+  display: inline-flex;
+  content: '';
+  width: 16px;
+  height: 12px;
+  margin-right: 10px;
+  background-image: url(../icon/envelope.svg);
+  background-size: contain;
+  background-position: center;
+} */
+
+/* hero - Приветствие к кнопкой call-to-action */
+.hero {
+  /* Выравнивание блока по центру экрана */
+  margin-left: auto;
+  margin-right: auto;
+  /* Внутренние отступы блока до текста и кнопки */
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+  /* Максимальная ширина блока по ширине картинки - это позволяет не изменять размер картинки */
+  max-width: 1600px;
+  /* Выравнивание заголовка и кнопки по центру */
+  text-align: center;
+  /* Обязательное свойство, если картинка не загрузится из сервера */
+  background-color: var(--background-grey-color);
+  /* Фоновый рисункок */
+  /* background-image: url(../images/hero.jpg); */
+  /* Фоновый рисункок и затемнение градиентом */
+  background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)),
+    url(../images/hero.jpg);
+}
+.hero-title {
+  /* outline: tomato solid 1px; */
+  /* Обнуление внешних отступов, которые устанавлены для h1 по умолчанию */
+  margin-top: 0;
+  /* Расстояние до кнопки */
+  margin-bottom: 30px;
+
+  color: var(--main-white-color);
+
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.363;
+  letter-spacing: 0.06em;
+  /* Выравнивание этого текстового блока по центру */
+  text-align: center;
+}
+
+.hero-button {
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 32px;
+  padding-top: 10px;
+  padding-right: 32px;
+  padding-bottom: 10px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+
+  /* Шрифт названия кнопки */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.875; /* 30 px*/
+  letter-spacing: 0.06em;
+
+  /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+  cursor: pointer;
+
+  /*  Set transition values  */
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color, background-color;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  /* Новое свойство : */
+  color: var(--main-black-color);
+  background-color: var(--main-white-color);
+  /* transform: rotate(180deg); */
+}
+
+.hero-button:active {
+  /* Меняется цвет фона кнопки при нажатии на кнопку */
+  background-color: red;
+}
+
+/* Секции  */
+
+/* Стандартная секция - свойства */
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+/* Секция без нижнего внутреннего отступа */
+.section.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.section-title {
+  margin-bottom: 50px;
+
+  color: var(--second-text-color);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  /* Выравнивание текста по центру */
+  text-align: center;
+}
+
+/* Только для секции Преимущества убирает вывод на экран заголовка */
+.section-title.feature {
+  /* Прячем (скрываем) заголовок секции */
+  /* Оба варианта делают одно и то же */
+  visibility: hidden;
+  opacity: 0;
+  /* За счет отрицательного внешнего отступа - убираем высоту текста */
+  margin-top: -43px;
+  /* Убираем нижний отступ заголовка */
+  margin-bottom: 0;
+}
+
+/* feature - Особливості - Преимущества */
+.feature-list {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
+  /* gap: 30px; */
+  row-gap: 30px;
+  column-gap: 30px;
+}
+
+/* Картинка для каждого преимущества - в .item::before */
+/* .feature-list .item::before {
+  /* content: ''; */
+/* height: 120px; */
+/* Картинка на всю ширину блока */
+/* display: block; */
+/* background-color: var(--background-section-color); */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+/* background-size: 70px 70px; */
+/* margin-bottom: 30px; */
+/* } */
+
+/* Иконки для каждого преимущества */
+/* .feature-list .item.antenna::before { */
+/* background-image: url(../icon/antenna.svg); */
+/* } */
+
+/* При вставке иконки через Inline-SVG */
+.feature-item-icon {
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--background-section-color);
+  margin-bottom: 30px;
+}
+
+.feature .icon {
+  display: block;
+  margin: 0;
+  /* padding-top: 25px;
+  padding-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  background-color: var(--acsent-color); */
+}
+/* Название преимущества */
+.feature-list .title {
+  margin-bottom: 10px;
+
+  color: var(--second-text-color);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+/* Для всех четных элементов списка Преимущества */
+/* .feature-list > .item:nth-child(2n) { */
+/* background-color: var(--acsent-color); */
+/* } */
+
+/* Описание преимущества */
+.feature-list .text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71428; /* 24px */
+  letter-spacing: 0.03em;
+}
+
+/* work - Роботи */
+.work-list {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между видами работ  */
+  gap: 30px;
+}
+
+.work .image-box {
+  /* Блок с картинкой и названием - относительная позиция для абсолютного позиционирование текста */
+  position: relative;
+}
+
+.work .image {
+  /* Картинка - блок, чтобы убрать нижние стандартные отступы */
+  display: block;
+}
+
+/* Название видов работ - абсолютное позиционирование в картинке */
+.work .description {
+  /* Абсолютное позиционирование по нижнему краю */
+  position: absolute;
+  bottom: 0;
+  /* Ширина - 100% от блока - размера картинки */
+  width: 100%;
+
+  /* Отступы */
+  margin: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  /* Выравнивание текста по центру */
+  text-align: center;
+  /* Трансформация текста в верхний регистр букв */
+  text-transform: uppercase;
+
+  /* Цвет текста */
+  color: var(--main-white-color);
+  /* Цвет фона - полупрозрачный  */
+  background-color: rgba(47, 48, 58, 0.8);
+
+  /* Шрифт - параметры */
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+/* team - Команда */
+.team {
+  background-color: var(--background-section-color);
+}
+
+.team .team-list {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между карточками работников */
+  gap: 30px;
+}
+
+.team-list-item {
+  /* Радиусы скругления нижние */
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /* Многослойная тень для карточки сотрудника */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+  /* Горизонтальное выравнивание текта  */
+  text-align: center;
+}
+
+.team-list-item .photo {
+  margin-bottom: 30px;
+}
+
+.team-list-item .name {
+  margin-bottom: 10px;
+
+  color: var(--second-text-color);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+.team-list-item .type-worker {
+  margin-bottom: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+.team-list-item .social-links {
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  width: 206px;
+  height: 44px;
+}
+
+.social-links > .item > .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: 1px solid var(--main-white-color);
+
+  cursor: pointer;
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: background-color;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.social-links .icon {
+  display: block;
+  margin: 0;
+  fill: var(--stroke-client-color);
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: fill;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.social-links > .item > .link:hover,
+.social-links > .item > .link:focus {
+  /* Новое свойство : */
+  background-color: var(--acsent-color);
+}
+
+.social-links > .item > .link:hover .icon,
+.social-links > .item > .link:focus .icon {
+  /* Новое свойство : */
+  fill: var(--main-white-color);
+}
+
+/* Клиенты */
+.client .client-list {
+  display: flex;
+  flex-direction: row;
+  /* Расстояние между картинками - логотипами клиентов */
+  gap: 30px;
+}
+
+/* Блок логотипа с рамкой */
+.client-list-item .client-link {
+  width: 170px;
+  height: 92px;
+  border-color: var(--stroke-client-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: border-color, border-width;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+/* Картинка с логотипом */
+.client-svg {
+  /* Все размеры иконок заданы в теге SVG в HTML-файле */
+  /* max-height: 47px; */
+  /* max-width: 94px; */
+  /* Рамка для отслеживания размера иконки */
+  /* outline: #2196f3 solid 1px; */
+  /* Делаем блочный элемент,чтобы убрать стандартный отступ снизу картинки*/
+  display: block;
+  fill: var(--stroke-client-color);
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: fill;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+/* При нажатии на иконку с логотипом клиента */
+.client-list-item .client-link:hover,
+.client-list-item .client-link:focus {
+  /* Новое свойство : */
+  border-color: var(--acsent-color);
+}
+
+/* Для полностью встроенного SVG (на примере Клиент 1) */
+/* .client-svg:hover .path {
+  fill: var(--acsent-color);
+} */
+
+.client-list-item .client-link:hover .client-svg,
+.client-list-item .client-link:focus .client-svg {
+  /* Новое свойство : */
+  fill: var(--acsent-color);
+}
+
+/* Portfolio */
+
+.portfolio-title {
+  color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
+
+  /* Прячем (скрываем) заголовок  */
+  /* Оба варианта делают одно и то же */
+  visibility: hidden;
+  opacity: 0;
+  /* За счет отрицательного внешнего отступа - убираем высоту текста */
+  margin-top: -27px;
+}
+
+/* filter - Фильтры */
+.filter-title {
+  color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
+
+  /* Прячем (скрываем) заголовок  */
+  /* Оба варианта делают одно и то же */
+  visibility: hidden;
+  opacity: 0;
+  margin-top: -27px;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+
+  margin-bottom: 24px;
+}
+
+.filter-button {
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 22px;
+  padding-top: 6px;
+  padding-right: 22px;
+  padding-bottom: 6px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--second-text-color);
+  background-color: var(--background-section-color);
+
+  /* Шрифт */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.625; /* 26px */
+  letter-spacing: 0.03em;
+
+  /* Вид курсора при наведении на кнопку */
+  cursor: pointer;
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color, background-color, box-shadow;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.filter-button:hover,
+.filter-button:focus {
+  /* Новые анимируемые свойства : */
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+
+  /* Многослойная тень при наведении на проект */
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.12);
+}
+
+.filter-button.current {
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+}
+
+/* project - Проэкты */
+.project-title {
+  color: var(--main-black-color);
+
+  /* Выравнивание текста по центру */
+  text-align: center;
+  /* Прячем (скрываем) заголовок  */
+  /* Оба варианта делают одно и то же */
+  visibility: hidden;
+  opacity: 0;
+  /* За счет отрицательного внешнего отступа - убираем высоту текста */
+  margin-top: -27px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: row;
+  /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
+  flex-wrap: wrap;
+  /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
+  gap: 30px;
+}
+
+.project-link {
+  /* Делаем ссылку блочным элементом */
+  display: block;
+
+  /* Убираем подчеркивание для ссылки */
+  text-decoration: none;
+
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: box-shadow;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.project-link:hover,
+.project-link:focus {
+  /* Новое свойство : */
+  /* Многослойная тень при наведении на проект */
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 4px 4px 0px rgba(0, 0, 0, 0.06),
+    1px 4px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+.project-photo {
+  /* Делаем картинку блочным элементом, убирая расстояние снизу 4px, установленное по умолчанию */
+  display: block;
+}
+
+/* Блок с картинкой */
+.image-box {
+  /* Для возможности сделать абсолютное позиционирование текста */
+  position: relative;
+  /* Скрываем переполнение - блок текста, который внизу*/
+  overflow: hidden;
+}
+
+/* Блок в текстом, выезжающий снизу */
+.image-overlay {
+  /* Свойства для центрирования блока с текстом по размеру картинки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Горизонтальные внутренние отступы */
+  padding-left: 24px;
+  padding-right: 24px;
+
+  /* Абсолютное позиционирование */
+  position: absolute;
+  /* Установка в верхний левый угол блока картинки */
+  top: 0;
+  left: 0;
+  /* Размеры блока с текстом-overlay - по размеру картинки */
+  width: 100%;
+  height: 100%;
+  /* Смещение всего блока вниз - по оси Y */
+  transform: translateY(100%);
+
+  /* Цвет текста */
+  color: var(--main-white-color);
+  /* Фон блока - акцентный - с прозрачностью 90% */
+  background-color: rgba(33, 150, 243, 0.9);
+
+  /* Параметры СSS-перехода : */
+  /* Анимация - transform - время - функция распределения времени  */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* При ховере на всю карточку с проектом снизу выходит текст */
+.project-link:hover .image-overlay,
+.project-link:focus .image-overlay {
+  /* Новое свойство : */
+  /* Блок с текстом перемещается снизу и занимает 100% картинки */
+  transform: translateY(0%);
+}
+
+.project-name-type {
+  padding: 20px;
+  border: var(--stroke-portfolio-color) solid 1px;
+
+  text-align: left;
+}
+
+.project-name {
+  margin-bottom: 4px;
+
+  color: var(--second-text-color);
+
+  /* Шрифт */
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2; /* 36px */
+  letter-spacing: 0.06em;
+}
+
+.project-type {
+  color: var(--main-text-color);
+
+  /* Шрифт */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.875; /* 30px */
+  letter-spacing: 0.03em;
+}
+
+/* footer */
+footer {
+  background-color: var(--background-grey-color);
+}
+
+.page-footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.adress .logo.link {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Почтовый адрес */
+address {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71428; /* 24px */
+  letter-spacing: 0.03em;
+}
+
+address .description {
+  margin-bottom: 9px;
+  color: var(--main-white-color);
+}
+
+/* Email */
+address .email {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--text-footer-tel-color);
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+  /* Параметры СSS-перехода : */
+  /* Анимация - transform - время - функция распределения времени  */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+address .email:hover,
+address .email:focus {
+  /* Новое свойство : */
+  color: var(--acsent-color);
+}
+
+/* Телефон */
+address .tel {
+  display: block;
+  color: var(--text-footer-tel-color);
+
+  /* Убрать подчеркивание для ссылки */
+  text-decoration: none;
+
+  /* Параметры СSS-перехода : */
+  /* Анимация - transform - время - функция распределения времени  */
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+address .tel:hover,
+address .tel:focus {
+  /* Новое свойство : */
+  color: var(--acsent-color);
+}
+
+.social .title {
+  margin-bottom: 20px;
+  color: var(--main-white-color);
+  text-transform: uppercase;
+}
+
+/* Секция с окном - Подпишитесь на рассылку */
+.newsletter .title {
+  margin-bottom: 20px;
+  color: var(--main-white-color);
+  /* Перевод текста в буквы верхнего регистра */
+  text-transform: uppercase;
+}
+
+/* Элемент input в footer */
+.input-email-newsletter {
+  min-width: 358px;
+  padding: 14px 16px;
+
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  /* Шрифт  */
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25; /* 20 px*/
+  letter-spacing: 0.03em;
+
+  background-color: rgba(33, 150, 243, 0);
+  /* color: rgba(255, 255, 255, 0.6); */
+}
+
+.input-email-newsletter:focus {
+  color: rgba(255, 255, 255, 1);
+  /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+  outline: none;
+  /* Меняем цвет рамки */
+  border-color: var(--acsent-color);
+}
+
+/* Цвет текста placeholder (E-mail) в поле input */
+.input-email-newsletter::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Кнопка "Подписаться" в футере */
+.newsletter .button {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 28px;
+  padding-top: 10px;
+  padding-right: 28px;
+  padding-bottom: 10px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+
+  /* Шрифт названия кнопки */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.875; /* 30 px*/
+  letter-spacing: 0.06em;
+
+  /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+  cursor: pointer;
+
+  /*  Set transition values  */
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color, background-color, fill;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+/* Оформление иконки кнопки "Подписаться" в футере */
+.newsletter .button .icon {
+  margin-left: 10px;
+  fill: var(--main-white-color);
+}
+
+.newsletter .button:hover,
+.newsletter .button:focus {
+  /* Новое свойство : */
+  color: var(--main-black-color);
+  background-color: var(--main-white-color);
+}
+
+/* Изменение фона иконки кнопки */
+.newsletter .button:hover .icon,
+.newsletter .button:focus .icon {
+  /* Новое свойство : */
+  fill: var(--acsent-color);
+}
+
+/* Фон всего экрана, если появляеся модальное окно */
+.backdrop {
+  /* Задаем фиксированную позицию */
+  position: fixed;
+  /* Позиционирование - верхний левый угол */
+  top: 0px;
+  left: 0px;
+  /* Занимает всю ширину и высоту экрана */
+  width: 100%;
+  height: 100%;
+  /* Цвет фона - черный с прозрачностью 20% (как в макете) */
+  background-color: rgba(0, 0, 0, 0.2);
+
+  /* Полная НЕ прозрачность и backdrop, и вложенных элементов */
+  opacity: 1;
+
+  /* Параметры СSS-перехода : */
+  /* Анимация - opacity - время - функция распределения времени  */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Фон в состоянии спрятанности (когда установлен класс .is-hidden) */
+.backdrop.is-hidden {
+  /* Анимируемое свойство - прозрачность и backdrop, и вложенных элементов */
+  opacity: 0;
+  /* Возможность пропускать через backdrop события (клики и т.п.) */
+  pointer-events: none;
+}
+
+/* Модальное окно в состоянии спрятанности (когда у фона класс .is-hidden) */
+.backdrop.is-hidden .form-modal {
+  /* Анимируемое свойство - transform */
+  /* Состоит из 2- частей, указываемых через пробел */
+  /* translate(-50%, -50%) - подцентрирование окна */
+  /* scale(0) - масштабирование 0,8:1 */
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Обычное состояние модального окна */
+.form-modal {
+  /* Абсолютное позиционирование */
+  position: absolute;
+  /* Центрирование модального окна */
+  top: 50%;
+  left: 50%;
+
+  /* Анимируемое свойство - transform */
+  /* Состоит из 2- частей, указываемых через пробел */
+  /* translate(-50%, -50%) - подцентрирование окна */
+  /* scale(1) - масштабирование 1:1 */
+  transform: translate(-50%, -50%) scale(1);
+
+  /* Минимальные размеры - ширина и высота */
+  min-width: 528px;
+  min-height: 250px;
+  /* Внутренние отступы */
+  padding: 40px;
+
+  /* Радиус границы */
+  border-radius: 4px;
+
+  color: var(--second-text-color);
+  background-color: var(--main-white-color);
+
+  /* Шрифт  */
+  font-family: Roboto, sans-serif;
+
+  /* Многослойная тень  */
+  box-shadow: 0px 1px 3cm 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+
+  /* Параметры СSS-перехода : */
+  /* Анимация - transform - время - функция распределения времени  */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Заголовок модального окна */
+.form-title {
+  text-align: center;
+  /* Шрифт  */
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5; /* 30 px*/
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+/* Контейнер для всех полей ввода, кроме условий */
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+/* Поля ввода (label+input) */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+/* Поля ввода - метки - label */
+.form-field label {
+  margin-bottom: 4px;
+  /* Шрифт  */
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5; /* 30 px*/
+  letter-spacing: 0.01em;
+  color: var(--main-text-color);
+}
+
+/* Поля ввода - input */
+.form-field input {
+  width: 100%;
+
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-right: 12px;
+  padding-left: 42px;
+
+  /* Шрифт  */
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 16px;
+  /* line-height: 1.5; 30 px */
+  letter-spacing: 0.03em;
+
+  border-color: rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  color: var(--main-black-color);
+}
+
+/* Поля ввода - input - при  :focus*/
+.form-field input:focus {
+  /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+  outline: none;
+  /* Меняем цвет рамки */
+  border-color: var(--acsent-color);
+}
+
+/* Контейнер для поля input (для вставки иконки) */
+.thumb-input {
+  display: block;
+  position: relative;
+}
+
+/* Иконка в input  */
+.thumb-input .icon {
+  display: block;
+  margin: 0;
+  /* Даем абсолютное позиционирование */
+  position: absolute;
+  /* Центрируем по оси Y */
+  top: 50%;
+  transform: translateY(-50%);
+  /* Даем отступ слева по оси X */
+  left: 12px;
+
+  fill: var(--second-text-color);
+}
+
+.thumb-input input:focus + .icon {
+  fill: var(--acsent-color);
+}
+
+/* Поле - Комментарии */
+.form-modal .comment {
+  padding: 12px 16px;
+  /* Запрет на изменение размера поля с комментариями */
+  resize: none;
+}
+.form-modal .comment::placeholder {
+  /* Шрифт  */
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5; /* 30 px*/
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+/* Поля ввода - textarea - при  :focus*/
+.form-field .comment:focus {
+  /* Выключаем свойство outline:, которое автоматически при фокусе на элемент */
+  outline: none;
+  /* Меняем цвет рамки */
+  border-color: var(--acsent-color);
+}
+
+/* Отметка о принятии условий */
+.form-modal .field-policy {
+  /* Делаем флекс для иконки и текста и выравниваем по вертикали */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Отступ от комментария */
+  margin-bottom: 30px;
+}
+
+.form-modal .label-policy {
+  /* Шрифт метки */
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.714; /* 24 px*/
+  letter-spacing: 0.03em;
+
+  color: var(--main-text-color);
+}
+
+/* Ссылка на условия договора */
+.form-modal .label-policy a {
+  color: var(--acsent-color);
+}
+
+/* Иконка метки принятия условий */
+.checkbox-input {
+  /* Убираем стандартный квадратик от браузера */
+  /* Новое свойство : */
+  appearance: none;
+  position: absolute;
+}
+
+/* Пользовательская иконка checkbox в невыбранном состоянии */
+.checkbox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  background-image: url(../icon/0-svg-original/check-0.svg);
+  background-size: contain;
+}
+
+/* Замена иконки, если input:checked - выбран */
+.checkbox-input:checked + .checkbox-icon {
+  background-image: url(../icon/0-svg-original/check-1.svg);
+}
+
+/* Кнопка  */
+.form-modal .button-submit {
+  /* Центрирование блока */
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Внутренние отступы от края кнопки до текста */
+  padding-left: 52px;
+  padding-top: 10px;
+  padding-right: 52px;
+  padding-bottom: 10px;
+
+  /* Радиус скругления углов кнопки */
+  border-radius: 4px;
+  /* Обводка кнопки - отсутствует */
+  border: none;
+
+  color: var(--main-white-color);
+  background-color: var(--acsent-color);
+
+  /* Шрифт названия кнопки */
+  /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.875; /* 30 px*/
+  letter-spacing: 0.06em;
+
+  /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+  cursor: pointer;
+
+  /*  Set transition values  */
+  /* Параметры СSS-перехода : */
+  /* - анимируемое свойство */
+  transition: color;
+  /* - функция распределения времени */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* - время перехода */
+  transition-duration: 250ms;
+}
+
+.form-modal .button-submit:hover,
+.form-modal .button-submit:focus {
+  /* Новое свойство : */
+  color: var(--main-black-color);
+}
+
+.form-modal .button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.1);
+
+  background-color: var(--main-white-color);
+
+  /* Вид курсора при наведении на кнопку либо при фокусе с клавиатуры */
+  cursor: pointer;
+}
+
+.form-modal .icon-close {
+  /* Изображение делаем блочным элементом */
+  display: block;
+  /* Убираем наружные отступы */
+  margin: 0;
+  /* Заливка элемента */
+  fill: var(--main-black-color);
+}
+
+/* События при кнопке закрытия модального окна */
+.form-modal .button-close:hover {
+  /* Меняется цвет фона */
+  background-color: var(--acsent-color);
+}
+
+.form-modal .button-close:hover .icon-close {
+  /* Меняется цвет иконки */
+  fill: var(--main-white-color);
+}

@@ -1,0 +1,79 @@
+/* filter - Фильтры */
+
+.filter__title {
+    color: var(--main-black-color);
+
+    /* Выравнивание текста по центру */
+    text-align: center;
+
+    /* Прячем (скрываем) заголовок  */
+    /* Оба варианта делают одно и то же */
+    visibility: hidden;
+    opacity: 0;
+    margin-top: -27px;
+}
+
+.filter__list {
+    /* Шаблон для немаркированного списка */
+    @extend %list;
+
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+
+.filter__button {
+    /* Внутренние отступы от края кнопки до текста */
+    padding-left: 22px;
+    padding-top: 6px;
+    padding-right: 22px;
+    padding-bottom: 6px;
+
+    /* Радиус скругления углов кнопки */
+    border-radius: 4px;
+    /* Обводка кнопки - отсутствует */
+    border: none;
+
+    color: var(--second-text-color);
+    background-color: var(--background-section-color);
+
+    /* Шрифт */
+    /* Для кнопки - обязательное указание шрифта или указание унаследования (по умолчанию, заданный ранее) */
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    /* 26px */
+    letter-spacing: 0.03em;
+
+    /* Вид курсора при наведении на кнопку */
+    cursor: pointer;
+
+    /* Параметры СSS-перехода : */
+    /* - анимируемое свойство */
+    transition: color, background-color, box-shadow;
+    /* - функция распределения времени */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    /* - время перехода */
+    transition-duration: 250ms;
+}
+
+.filter__button:hover,
+.filter__button:focus {
+    /* Новые анимируемые свойства : */
+    color: var(--main-white-color);
+    background-color: var(--acsent-color);
+
+    /* Многослойная тень при наведении на проект */
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.12);
+}
+
+/* Текущий фильтр */
+.filter__button--current {
+    color: var(--main-white-color);
+    background-color: var(--acsent-color);
+}
