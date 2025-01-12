@@ -1,0 +1,71 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 100px;
+  margin-left: 200px;
+
+  padding: 20px 50px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  background-color: #f1e1e8;
+  color: #a01072;
+
+  transition: background-color 1000ms linear, color 1000ms linear 500ms;
+}
+
+.button:hover {
+  background-color: rgb(212, 134, 134);
+  color: black;
+}
+
+.button::before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+  background-image: url('../icon/2-svg-optimized-svgomg/clock.svg');
+  background-size: contain;
+
+  transition: transform 1000ms linear;
+}
+
+.button:hover::before {
+  transform: translateY(-300%);
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 50%-10px;
+
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+
+  background-image: url('../icon/2-svg-optimized-svgomg/astronaut.svg');
+  background-size: contain;
+
+  transform: translateY(300%);
+
+  transition: transform 1000ms linear;
+}
+
+.button:hover::after {
+  transform: translateY(0%);
+}

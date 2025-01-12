@@ -115,8 +115,6 @@ p {
 /* #ECECEC - обводка-header + line в index.html (между header и main)*/
 /* #EEEEEE - обводка карточки в portfolio.html */
 /* #AFB1B8 - обводка карточки в разделе Клиенты */
-/* Переменные точек перелома адаптивной верстки*/
-/* Переменные точек перелома адаптивной верстки*/
 /* Утилиты - Шаблоны */
 /* Утилиты - ШАБЛОНЫ - placeholder */
 .project__list, .filter__list, .client__list, .team__list, .work__list, .feature__list, .social-links, .nav-adress, .nav-site {
@@ -131,26 +129,11 @@ p {
 .page-footer__container, .portfolio__container, .client__container, .team__container, .work__container, .feature__container, .page-header__container {
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 1200px;
   padding-top: 0px;
   padding-right: 15px;
   padding-bottom: 0px;
   padding-left: 15px;
-}
-@media screen and (min-width: 480px) {
-  .page-footer__container, .portfolio__container, .client__container, .team__container, .work__container, .feature__container, .page-header__container {
-    width: 480px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .page-footer__container, .portfolio__container, .client__container, .team__container, .work__container, .feature__container, .page-header__container {
-    width: 768px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .page-footer__container, .portfolio__container, .client__container, .team__container, .work__container, .feature__container, .page-header__container {
-    width: 1200px;
-  }
 }
 
 /* Компоненты */
@@ -189,7 +172,6 @@ p {
 .page-header {
   /* Фиксированная верхняя строка меню */
   position: fixed;
-  /* Временно удалено для адаптивной верстки */
   width: 100%;
   top: 0;
   left: 0;
@@ -199,21 +181,6 @@ p {
   /* Нижняя граница элемента */
   border-bottom: var(--stroke-index-color) solid 1px;
   background-color: var(--main-white-color);
-}
-@media screen and (min-width: 480px) {
-  .page-header {
-    width: 480px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .page-header {
-    width: 768px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .page-header {
-    width: 1200px;
-  }
 }
 
 /* Верхняя строка - header */
@@ -239,22 +206,13 @@ p {
 
 /* Кнопка мобильного меню */
 .menu-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   padding: 0;
   margin: 0;
   border: 0;
   background-color: transparent;
-}
-@media screen and (max-width: 768px) {
-  .menu-button {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-  }
-}
-@media screen and (min-width: 768px) {
-  .menu-button {
-    display: none;
-  }
 }
 .menu-button .icon-menu-40 {
   display: block;
@@ -270,44 +228,26 @@ p {
 }
 
 /* Контейнер меню */
-@media (max-width: 768px) {
-  .menu-container {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  .menu-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
+.menu-container {
+  display: none;
 }
 
 /* Стилизация меню .nav-site */
 .nav-site {
   /* Шаблон для немаркированного списка */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   /* Расстояние между пунктами меню навигации */
   /* gap: 50px; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-}
-@media (max-width: 768px) {
-  .nav-site {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  .nav-site {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
 }
 
 /* Расстояние между пунктами меню навигации */
@@ -375,6 +315,13 @@ p {
 /* Стилизация меню .nav-adress */
 .nav-adress {
   /* Шаблон для немаркированного списка */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -384,22 +331,6 @@ p {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-}
-@media (max-width: 768px) {
-  .nav-adress {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  .nav-adress {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
 }
 
 .nav-adress__link {
@@ -473,21 +404,13 @@ p {
 /* Секции  */
 /* Стандартная секция - свойства */
 .section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-@media screen and (min-width: 1200px) {
-  .section {
-    padding-top: 94px;
-    padding-bottom: 94px;
-  }
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
 /* Секция без нижнего внутреннего отступа */
-@media screen and (min-width: 1200px) {
-  .section.no-padding-bottom {
-    padding-bottom: 0;
-  }
+.section.no-padding-bottom {
+  padding-bottom: 0;
 }
 
 /* Заголовок секции */
@@ -675,30 +598,21 @@ p {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .feature__item:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
 .feature__list {
   /* Шаблон для немаркированного списка */
-}
-@media screen and (min-width: 768px) {
-  .feature__list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
-    /* gap: 30px; */
-    row-gap: 30px;
-    -webkit-column-gap: 30px;
-       -moz-column-gap: 30px;
-            column-gap: 30px;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
+  /* gap: 30px; */
+  row-gap: 30px;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
 }
 
 /* ====================================================== */
@@ -744,7 +658,6 @@ p {
 .feature__title {
   margin-bottom: 10px;
   color: var(--second-text-color);
-  text-align: center;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
@@ -765,12 +678,6 @@ p {
 }
 
 /* work - Роботи */
-@media screen and (max-width: 768px) {
-  .work {
-    display: none;
-  }
-}
-
 .work__container {
   /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
 }
@@ -837,19 +744,15 @@ p {
 
 .team__list {
   /* Шаблон для немаркированного списка */
-}
-@media screen and (min-width: 768px) {
-  .team__list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    /* Расстояние между карточками работников */
-    gap: 30px;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  /* Расстояние между карточками работников */
+  gap: 30px;
 }
 
 .team__item {
@@ -862,20 +765,8 @@ p {
   /* Горизонтальное выравнивание текта  */
   text-align: center;
 }
-@media screen and (max-width: 768px) {
-  .team__item {
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 24px;
-    margin-bottom: 30px;
-  }
-}
 
 .team__photo {
-  display: block;
-  max-width: 100%;
-  height: auto;
   margin-bottom: 30px;
 }
 
@@ -898,9 +789,9 @@ p {
 
 /* Наружные отступы для блока с социальными сетями*/
 .team__item .social-links {
-  /* Выравнивание по центру блока с социальными сетями */
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 30px;
 }
 
 /* Клиенты */
@@ -918,17 +809,13 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   /* Расстояние между картинками - логотипами клиентов */
   gap: 30px;
 }
 
 /* Блок логотипа с рамкой */
 .client__link {
-  min-width: 170px;
-  max-width: 210px;
+  width: 170px;
   height: 92px;
   border-color: var(--stroke-client-color);
   border-style: solid;
@@ -1248,46 +1135,18 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 60px;
   padding-bottom: 60px;
-}
-@media screen and (min-width: 768px) {
-  .page-footer__container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .page-footer__container {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
-  }
-}
-
-.page-footer__address {
-  text-align: center;
-  margin-bottom: 60px;
-}
-@media screen and (min-width: 1200px) {
-  .page-footer__address {
-    text-align: left;
-    margin-bottom: 0;
-  }
 }
 
 .page-footer__logo {
@@ -1347,19 +1206,6 @@ p {
   color: var(--acsent-color);
 }
 
-.page-footer__social {
-  text-align: center;
-  margin-bottom: 60px;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media screen and (min-width: 1200px) {
-  .page-footer__social {
-    text-align: left;
-    margin: 0;
-  }
-}
-
 .social__title {
   margin-bottom: 20px;
   color: var(--main-white-color);
@@ -1367,14 +1213,6 @@ p {
 }
 
 /* Секция с окном - Подпишитесь на рассылку */
-@media screen and (max-width: 1200px) {
-  .page-footer__newsletter {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 .newsletter__title {
   margin-bottom: 20px;
   color: var(--main-white-color);
@@ -1384,6 +1222,7 @@ p {
 
 /* Элемент input в footer */
 .input-email-newsletter {
+  min-width: 358px;
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1396,17 +1235,6 @@ p {
   letter-spacing: 0.03em;
   background-color: rgba(33, 150, 243, 0);
   /* color: rgba(255, 255, 255, 0.6); */
-}
-@media screen and (max-width: 1200px) {
-  .input-email-newsletter {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .input-email-newsletter {
-    min-width: 358px;
-  }
 }
 
 .input-email-newsletter:focus {
@@ -1436,6 +1264,7 @@ p {
 
 /* Кнопка "Подписаться" в футере */
 .newsletter__button {
+  margin-left: 12px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1477,11 +1306,6 @@ p {
   /* Оформление иконки кнопки "Подписаться" в футере */
   /* При :hover/:focus на кнопку - меняются цвета*/
   /* /* При :hover/:focus на кнопку - Изменение фона иконки кнопки */
-}
-@media screen and (min-width: 1200px) {
-  .newsletter__button {
-    margin-left: 12px;
-  }
 }
 .newsletter__button .icon {
   margin-left: 10px;
@@ -1549,8 +1373,8 @@ p {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
   /* Минимальные размеры - ширина и высота */
-  min-width: 400px;
-  min-height: 580px;
+  min-width: 528px;
+  min-height: 250px;
   /* Внутренние отступы */
   padding: 40px;
   /* Радиус границы */
@@ -1755,10 +1579,10 @@ p {
   /* Шрифт метки */
   font-family: inherit;
   font-weight: 400;
+  font-size: 14px;
   line-height: 1.714;
   /* 24 px*/
   letter-spacing: 0.03em;
-  font-size: 12px;
   color: var(--main-text-color);
 }
 

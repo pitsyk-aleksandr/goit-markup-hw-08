@@ -14,10 +14,16 @@
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: flex;
-    flex-direction: row;
-    /* Расстояние между карточками работников */
-    gap: 30px;
+
+
+    @media screen and (min-width:$tablet) {
+            display: flex;
+            flex-direction: row;
+            /* Расстояние между карточками работников */
+            gap: 30px;
+    }
+
+
 }
 
 .team__item {
@@ -29,9 +35,22 @@
         0px 2px 1px 0px rgba(0, 0, 0, 0.2);
     /* Горизонтальное выравнивание текта  */
     text-align: center;
+
+    @media screen and (max-width:$tablet) {
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 24px;
+        margin-bottom: 30px;
+    }
 }
 
 .team__photo {
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+    
     margin-bottom: 30px;
 }
 
@@ -56,7 +75,12 @@
 
 /* Наружные отступы для блока с социальными сетями*/
 .team__item .social-links {
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-bottom: 30px;
+
+    /* Выравнивание по центру блока с социальными сетями */
+    margin-left: auto;
+    margin-right: auto;
+
+    // margin-left: 32px;
+    // margin-right: 32px;
+    
 }

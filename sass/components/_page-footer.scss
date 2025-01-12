@@ -8,11 +8,41 @@
     @extend %container;
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+
+    
     padding-top: 60px;
     padding-bottom: 60px;
+
+
+    // @media screen and (min-width:$mobile) {
+        
+    // }
+        
+    @media screen and (min-width:$tablet) {
+       
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+        
+    @media screen and (min-width:$desktop) {
+        align-items:baseline;
+    }
+
+
+}
+
+.page-footer__address {
+    
+    text-align: center;
+    margin-bottom: 60px;
+    
+    @media screen and (min-width:$desktop) {
+        text-align: left;
+        margin-bottom: 0;
+    }
 }
 
 .page-footer__logo {
@@ -72,6 +102,21 @@
     color: var(--acsent-color);
 }
 
+.page-footer__social {
+    
+    text-align: center;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    
+        
+    @media screen and (min-width:$desktop) {
+        text-align: left;
+        margin: 0;
+    }
+
+}
+
 .social__title {
     margin-bottom: 20px;
     color: var(--main-white-color);
@@ -80,6 +125,15 @@
 
 
 /* Секция с окном - Подпишитесь на рассылку */
+.page-footer__newsletter {
+    @media screen and (max-width:$desktop) {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
 .newsletter__title {
     margin-bottom: 20px;
     color: var(--main-white-color);
@@ -89,7 +143,16 @@
 
 /* Элемент input в footer */
 .input-email-newsletter {
-    min-width: 358px;
+
+    @media screen and (max-width:$desktop) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        min-width: 358px; 
+    }
+    
     padding: 14px 16px;
 
     border-radius: 4px;
@@ -122,7 +185,11 @@
 
 /* Кнопка "Подписаться" в футере */
 .newsletter__button {
-    margin-left: 12px;
+
+    @media screen and (min-width:$desktop){
+        margin-left: 12px;
+    }
+
     display: inline-flex;
     align-items: center;
     /* Внутренние отступы от края кнопки до текста */

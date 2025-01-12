@@ -4,6 +4,8 @@
 @import "base/font";
 /* Переменные */
 @import "utils/variable";
+/* Переменные точек перелома адаптивной верстки*/
+@import "utils/breakpoint";
 /* Утилиты - Шаблоны */
 @import "utils/placeholder";
 /* Компоненты */

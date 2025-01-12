@@ -12,8 +12,10 @@ body {
 
     /* Получение цвета из карты через функцию */ 
     background-color: getColor('main-white');
+
     /* Получение цвета из SACC-переменной*/ 
-    color: $main-text-color;
+    // color: $main-text-color;
+    color-scheme: getColor('main-text');
 
     font-family: 'Roboto', sans-serif;
     font-style: normal;

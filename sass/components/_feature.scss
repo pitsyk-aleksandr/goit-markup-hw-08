@@ -16,17 +16,25 @@
     margin-bottom: 0;
 }
 
+@media screen and (max-width:$tablet) {
+    .feature__item:not(:last-child) {
+        margin-bottom: 30px;
+    }
+}
 
 .feature__list {
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: flex;
-    flex-direction: row;
-    /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
-    /* gap: 30px; */
-    row-gap: 30px;
-    column-gap: 30px;
+    @media screen and (min-width:$tablet) {
+        display: flex;
+        flex-direction: row;
+        /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
+        /* gap: 30px; */
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+
 }
 
 /* ====================================================== */
@@ -70,6 +78,8 @@
     margin-bottom: 10px;
 
     color: var(--second-text-color);
+
+    text-align: center;
 
     font-weight: 700;
     font-size: 14px;

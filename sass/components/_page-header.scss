@@ -2,10 +2,24 @@
 
 /* Header - на всю длину */
 .page-header {
-
     /* Фиксированная верхняя строка меню */
     position: fixed;
+
+    /* Временно удалено для адаптивной верстки */
     width: 100%;
+    
+    @media screen and (min-width:$mobile) {
+        width: 480px;
+    }
+        
+    @media screen and (min-width:$tablet) {
+        width: 768px;
+    }
+        
+    @media screen and (min-width:$desktop) {
+        width: 1200px;
+    }
+
     top: 0;
     left: 0;
 
@@ -32,15 +46,71 @@
     justify-content: space-between;
 }
 
+/* Кнопка мобильного меню */ 
+.menu-button {
+    
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
 
-/* Стилизация header */
+
+    @media screen and (max-width: $tablet){
+        display: inline-flex;
+    }
+    @media screen and (min-width: $tablet){
+        display: none;
+    }    
+    
+     
+    & .icon-menu-40 {
+        display: block;
+    }
+
+    &.is-open .icon-menu-40 {
+        display: none;
+    }
+    
+    & .icon-close-40 {
+        display: none;
+    }
+    
+    &.is-open .icon-close-40 {
+        display: block;
+    }
+
+}
+
+
+
+/* Контейнер меню */ 
+.menu-container {
+    @media (max-width: $tablet) {
+        display: none;
+    }
+
+        
+    @media (min-width: $tablet) {
+        display: flex;
+    }
+}
+
+
 /* Стилизация меню .nav-site */
 .nav-site {
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: flex;
-    flex-direction: row;
+    @media (max-width: $tablet) {
+            display: none;
+    }
+
+    @media (min-width: $tablet) {
+        display: flex;
+        flex-direction: row;
+    }
+
+    
     /* Расстояние между пунктами меню навигации */
     /* gap: 50px; */
 
@@ -118,8 +188,15 @@
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: flex;
-    flex-direction: row;
+    @media (max-width: $tablet) {
+        display: none;
+    }
+        
+    @media (min-width: $tablet) {
+        display: flex;
+        flex-direction: row;
+    }
+
     align-items: center;
     /* Расстояние между пунктами меню навигации */
     /* gap: 50px; */

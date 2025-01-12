@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+/* Отключение возможности изменения размера  <textarea>  */
+textarea {
+  resize: none;
+}
+
+.form {
+  width: 600px;
+  outline: 1px solid tomato;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.form-field {
+  outline: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  margin-bottom: 4px;
+}
+
+.form-input {
+  margin: 0;
+  padding: 5px 15px;
+  border-radius: 3px;
+  border: 1px solid black;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.form-input::placeholder {
+  color: chocolate;
+}
+
+/* Выезд label из поля ввода */
+.form-field.up {
+  margin-top: 40px;
+  position: relative;
+}
+
+.form-label.up {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 500ms linear;
+}
+
+/* label поднимается вверх на 50 пикселей*/
+/* Обязательно использовать селектор соседа  +  */
+/* При событии :focus для input   */
+/* И при событии, когда НЕ показывается placeholder - :not(:placeholder-shown)*/
+.form-input.up:focus + .form-label.up,
+.form-input.up:not(:placeholder-shown) + .form-label.up {
+  transform: translateY(-50px);
+}
+
+.group {
+  margin-bottom: 10px;
+}
+
+.group-title {
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Одинаковое оформление для двух групп опций */
+.lang-options,
+.level-options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.lang-options li,
+.level-options li {
+  display: flex;
+  align-items: center;
+}
+
+/* Селектор по атрибуту типа */
+.lang-options input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+
+.lang-options label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+/* Селектор по атрибуту типа */
+.level-options input[type='radio'] {
+  width: 20px;
+  height: 20px;
+}
+
+.level-options label {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.form .comment {
+  padding: 8px;
+  font-size: 16px;
+  color: black;
+  background-color: aqua;
+}

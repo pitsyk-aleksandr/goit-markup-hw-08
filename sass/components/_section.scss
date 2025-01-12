@@ -2,13 +2,21 @@
 
 /* Стандартная секция - свойства */
 .section {
-    padding-top: 94px;
-    padding-bottom: 94px;
+    
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @media screen and (min-width:$desktop) {
+        padding-top: 94px;
+        padding-bottom: 94px;
+    }
 }
 
 /* Секция без нижнего внутреннего отступа */
 .section.no-padding-bottom {
-    padding-bottom: 0;
+    @media screen and (min-width:$desktop) {
+        padding-bottom: 0;
+    }
 }
 
 /* Заголовок секции */

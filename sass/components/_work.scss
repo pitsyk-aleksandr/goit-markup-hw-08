@@ -1,5 +1,12 @@
 /* work - Роботи */
 
+.work {
+    @media screen and (max-width:$tablet) {
+        display: none;
+    }
+    
+}
+
 .work__container {
     /* Шаблон, который ограничивает контент размером сетки и устанавливает отступы */
     @extend %container;
