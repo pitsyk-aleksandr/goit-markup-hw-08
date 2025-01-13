@@ -19,9 +19,18 @@
 
     display: flex;
     flex-direction: row;
-    gap: 8px;
-    justify-content: center;
 
+    /* Разрешение на перенос кнопок */
+    flex-wrap: wrap;
+    /* Расстояние между кнопками фильтра*/
+    gap: 8px;
+
+    /* Выравнивание кнопок фильтра*/
+    justify-content: flex-start;
+    @media screen and (min-width:$tablet){
+        justify-content: center;
+    }
+    
     margin-bottom: 24px;
 }
 

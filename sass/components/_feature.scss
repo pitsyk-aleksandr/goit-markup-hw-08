@@ -16,11 +16,7 @@
     margin-bottom: 0;
 }
 
-@media screen and (max-width:$tablet) {
-    .feature__item:not(:last-child) {
-        margin-bottom: 30px;
-    }
-}
+
 
 .feature__list {
     /* Шаблон для немаркированного списка */
@@ -29,12 +25,34 @@
     @media screen and (min-width:$tablet) {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
         /* gap: 30px; */
         row-gap: 30px;
         column-gap: 30px;
     }
 
+}
+
+.feature__item {
+        @media screen and (min-width:$mobile) {
+                width: 450px;
+            }
+        
+            @media screen and (min-width:$tablet) {
+                width: 354px;
+            }
+        
+            @media screen and (min-width:$desktop) {
+                width: 270px;
+            }
+}
+
+/* Нижний отступ для мобильной версии */
+@media screen and (max-width:$tablet) {
+    .feature__item:not(:last-child) {
+        margin-bottom: 30px;
+    }
 }
 
 /* ====================================================== */
@@ -60,6 +78,19 @@
 /* При вставке иконки через Inline-SVG */
 .feature__div-icon {
     display: flex;
+
+    @media screen and (min-width:$mobile) {
+        width: 450px;
+    }
+        
+    @media screen and (min-width:$tablet) {
+        width: 354px;
+    }
+        
+    @media screen and (min-width:$desktop) {
+        width: 270px;
+    }
+    
     height: 120px;
     justify-content: center;
     align-items: center;

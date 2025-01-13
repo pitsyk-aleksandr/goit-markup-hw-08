@@ -52,9 +52,9 @@
 
     /* Минимальные размеры - ширина и высота */
     min-width: 400px;
-    min-height: 580px;
+    min-height: 500px;
     /* Внутренние отступы */
-    padding: 40px;
+    padding: 25px;
 
     /* Радиус границы */
     border-radius: 4px;
@@ -207,17 +207,10 @@
     /* Шрифт метки */
     font-family: inherit;
     font-weight: 400;
-    
+    font-size: 14px;
     line-height: 1.714;
     /* 24 px*/
     letter-spacing: 0.03em;
-
-    font-size: 12px;
-    
-    // @media screen and (min-height:$tablet) {
-    //     font-size: 14px;
-    // }
-
 
     color: var(--main-text-color);
 }

@@ -37,32 +37,41 @@
         <a href="./index.html" title="Перехід на основну сторінку" class="logo"
           ><span class="logo__first">Web</span><span class="logo__second">Studio</span></a
         >
+
+        <button type="button" class="menu-button" aria-expanded="false" data-menu-button>
+          <svg width="40" height="40" aria-label="Переключатель мобильного меню">
+            <use class="icon-menu-40" href="./icon/icons.svg#icon-menu-40"></use>
+            <use class="icon-close-40" href="./icon/icons.svg#icon-close-40"></use>
+          </svg>
+        </button>
+
         <!-- Навигация - это ссылки на другие странички -->
-        <nav>
+
+        <nav class="nav-menu">
           <ul class="nav-site">
             <li class="nav-site__item">
-              <a href="./index.html" title="Основна сторінка" class="nav-site__link">Студія</a>
+              <a
+                href="./index.html"
+                title="Основна сторінка"
+                class="nav-site__link nav-site__link--current"
+                >Студія</a
+              >
             </li>
             <li class="nav-site__item">
-              <a
-                href="./portfolio.html"
-                title="Наші проекти"
-                class="nav-site__link nav-site__link--current"
-                >Портфоліо</a
-              >
+              <a href="./portfolio.html" title="Наші проекти" class="nav-site__link">Портфоліо</a>
             </li>
             <li class="nav-site__item">
               <a href="./button-icon.html" title="Наші контакти" class="nav-site__link">Контакти</a>
             </li>
-            <li class="nav-site__item">
-              <a href="./menu.html" title="Випадаюче меню" class="nav-site__link">Меню</a>
-            </li>
-            <li class="nav-site__item">
-              <a href="./button-icon.html" title="Кнопка+Іконка" class="nav-site__link">Кнопка</a>
-            </li>
-            <li class="nav-site__item">
-              <a href="./form-input.html" title="form-input" class="nav-site__link">Вікно</a>
-            </li>
+            <!-- <li class="nav-site__item">
+                <a href="./menu.html" title="Випадаюче меню" class="nav-site__link">Меню</a>
+              </li> -->
+            <!-- <li class="nav-site__item">
+                <a href="./button-icon.html" title="Кнопка+Іконка" class="nav-site__link">Кнопка</a>
+              </li> -->
+            <!-- <li class="nav-site__item">
+                <a href="./form-input.html" title="form-input" class="nav-site__link">Вікно</a>
+              </li> -->
           </ul>
         </nav>
         <ul class="nav-adress">
@@ -340,7 +349,7 @@
           </address>
         </div>
 
-        <div class="social">
+        <div class="page-footer__social">
           <h3 class="social__title">Приєднуйтесь</h3>
           <ul class="social-links">
             <li class="social-links__item">
@@ -375,7 +384,7 @@
         </div>
 
         <!-- Часть футера - Подписка на рассылку -->
-        <div class="newsletter">
+        <div class="page-footer__newsletter">
           <h3 class="newsletter__title">Підпишіться на розсилку</h3>
           <form name="newsletter__form" action="">
             <label for="newsletter__email"> </label>

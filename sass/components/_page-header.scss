@@ -5,20 +5,10 @@
     /* Фиксированная верхняя строка меню */
     position: fixed;
 
-    /* Временно удалено для адаптивной верстки */
+    
     width: 100%;
     
-    @media screen and (min-width:$mobile) {
-        width: 480px;
-    }
-        
-    @media screen and (min-width:$tablet) {
-        width: 768px;
-    }
-        
-    @media screen and (min-width:$desktop) {
-        width: 1200px;
-    }
+ 
 
     top: 0;
     left: 0;
@@ -44,6 +34,10 @@
     align-items: center;
     /* Выравнивание элементов по главной оси  */
     justify-content: space-between;
+
+    /* Выравнивание по центру */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Кнопка мобильного меню */ 
@@ -83,34 +77,18 @@
 
 
 
-/* Контейнер меню */ 
-.menu-container {
-    @media (max-width: $tablet) {
-        display: none;
-    }
-
-        
-    @media (min-width: $tablet) {
-        display: flex;
-    }
-}
-
-
 /* Стилизация меню .nav-site */
 .nav-site {
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    @media (max-width: $tablet) {
-            display: none;
-    }
-
+    display: none;
+        
     @media (min-width: $tablet) {
         display: flex;
         flex-direction: row;
     }
 
-    
     /* Расстояние между пунктами меню навигации */
     /* gap: 50px; */
 
@@ -120,7 +98,6 @@
     letter-spacing: 0.02em;
 }
 
-/* Расстояние между пунктами меню навигации */
 .nav-site__item:not(:last-child) {
     margin-right: 50px;
 }
@@ -188,18 +165,24 @@
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    @media (max-width: $tablet) {
-        display: none;
-    }
-        
+    display: none;
+            
     @media (min-width: $tablet) {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        /* Расстояние между пунктами меню навигации */
+        gap: 10px;
+        align-items:baseline;
     }
 
-    align-items: center;
-    /* Расстояние между пунктами меню навигации */
-    /* gap: 50px; */
+    @media (min-width: $desktop) {
+        display: flex;
+        flex-direction: row;
+        /* Расстояние между пунктами меню навигации */
+        gap: 30px;
+        align-items: center;
+    }
+
 
     font-weight: 500;
     font-size: 14px;

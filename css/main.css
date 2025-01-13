@@ -189,7 +189,6 @@ p {
 .page-header {
   /* Фиксированная верхняя строка меню */
   position: fixed;
-  /* Временно удалено для адаптивной верстки */
   width: 100%;
   top: 0;
   left: 0;
@@ -199,21 +198,6 @@ p {
   /* Нижняя граница элемента */
   border-bottom: var(--stroke-index-color) solid 1px;
   background-color: var(--main-white-color);
-}
-@media screen and (min-width: 480px) {
-  .page-header {
-    width: 480px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .page-header {
-    width: 768px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .page-header {
-    width: 1200px;
-  }
 }
 
 /* Верхняя строка - header */
@@ -235,6 +219,9 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /* Выравнивание по центру */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Кнопка мобильного меню */
@@ -269,34 +256,16 @@ p {
   display: block;
 }
 
-/* Контейнер меню */
-@media (max-width: 768px) {
-  .menu-container {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  .menu-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-
 /* Стилизация меню .nav-site */
 .nav-site {
   /* Шаблон для немаркированного списка */
+  display: none;
   /* Расстояние между пунктами меню навигации */
   /* gap: 50px; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-}
-@media (max-width: 768px) {
-  .nav-site {
-    display: none;
-  }
 }
 @media (min-width: 768px) {
   .nav-site {
@@ -310,7 +279,6 @@ p {
   }
 }
 
-/* Расстояние между пунктами меню навигации */
 .nav-site__item:not(:last-child) {
   margin-right: 50px;
 }
@@ -375,22 +343,29 @@ p {
 /* Стилизация меню .nav-adress */
 .nav-adress {
   /* Шаблон для немаркированного списка */
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  /* Расстояние между пунктами меню навигации */
-  /* gap: 50px; */
+  display: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .nav-adress {
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    /* Расстояние между пунктами меню навигации */
+    gap: 10px;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .nav-adress {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -399,6 +374,11 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    /* Расстояние между пунктами меню навигации */
+    gap: 30px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -675,11 +655,6 @@ p {
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .feature__item:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
 .feature__list {
   /* Шаблон для немаркированного списка */
 }
@@ -692,6 +667,8 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     /* Расстояние между элементами - свойство gap - the gutters between grid rows and columns. */
     /* gap: 30px; */
     row-gap: 30px;
@@ -701,6 +678,28 @@ p {
   }
 }
 
+@media screen and (min-width: 480px) {
+  .feature__item {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .feature__item {
+    width: 354px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .feature__item {
+    width: 270px;
+  }
+}
+
+/* Нижний отступ для мобильной версии */
+@media screen and (max-width: 768px) {
+  .feature__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
 /* ====================================================== */
 /* Картинка для каждого преимущества - в .item::before */
 /* .feature-list .item::before {
@@ -734,6 +733,21 @@ p {
   background-color: var(--background-section-color);
   margin-bottom: 30px;
 }
+@media screen and (min-width: 480px) {
+  .feature__div-icon {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .feature__div-icon {
+    width: 354px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .feature__div-icon {
+    width: 270px;
+  }
+}
 
 .feature__icon {
   display: block;
@@ -765,9 +779,12 @@ p {
 }
 
 /* work - Роботи */
-@media screen and (max-width: 768px) {
+.work {
+  display: none;
+}
+@media screen and (min-width: 1200px) {
   .work {
-    display: none;
+    display: block;
   }
 }
 
@@ -837,22 +854,32 @@ p {
 
 .team__list {
   /* Шаблон для немаркированного списка */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Расстояние между карточками работников */
+  gap: 30px;
 }
 @media screen and (min-width: 768px) {
   .team__list {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    /* Расстояние между карточками работников */
-    gap: 30px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
 .team__item {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 24px;
   /* Радиусы скругления нижние */
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -862,13 +889,19 @@ p {
   /* Горизонтальное выравнивание текта  */
   text-align: center;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 480px) {
   .team__item {
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 24px;
-    margin-bottom: 30px;
+    width: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .team__item {
+    width: 354px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .team__item {
+    width: 270px;
   }
 }
 
@@ -927,8 +960,7 @@ p {
 
 /* Блок логотипа с рамкой */
 .client__link {
-  min-width: 170px;
-  max-width: 210px;
+  width: 170px;
   height: 92px;
   border-color: var(--stroke-client-color);
   border-style: solid;
@@ -957,6 +989,21 @@ p {
   /* - время перехода */
   -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
+}
+@media screen and (min-width: 480px) {
+  .client__link {
+    width: 210px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .client__link {
+    width: 226px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .client__link {
+    width: 170px;
+  }
 }
 
 /* Картинка с логотипом */
@@ -1036,11 +1083,23 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  /* Разрешение на перенос кнопок */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* Расстояние между кнопками фильтра*/
   gap: 8px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  /* Выравнивание кнопок фильтра*/
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .filter__list {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .filter__button {
@@ -1110,18 +1169,22 @@ p {
 
 .project__list {
   /* Шаблон для немаркированного списка */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
-  gap: 30px;
+}
+@media screen and (min-width: 768px) {
+  .project__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
+    gap: 30px;
+  }
 }
 
 .project__link {
@@ -1141,6 +1204,21 @@ p {
   /* - время перехода */
   -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
+}
+@media screen and (min-width: 480px) {
+  .project__link {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .project__link {
+    width: 354px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .project__link {
+    width: 370px;
+  }
 }
 
 .project__link:hover,
@@ -1550,9 +1628,9 @@ p {
           transform: translate(-50%, -50%) scale(1);
   /* Минимальные размеры - ширина и высота */
   min-width: 400px;
-  min-height: 580px;
+  min-height: 500px;
   /* Внутренние отступы */
-  padding: 40px;
+  padding: 25px;
   /* Радиус границы */
   border-radius: 4px;
   color: var(--second-text-color);
@@ -1755,10 +1833,10 @@ p {
   /* Шрифт метки */
   font-family: inherit;
   font-weight: 400;
+  font-size: 14px;
   line-height: 1.714;
   /* 24 px*/
   letter-spacing: 0.03em;
-  font-size: 12px;
   color: var(--main-text-color);
 }
 

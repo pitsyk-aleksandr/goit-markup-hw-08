@@ -1,10 +1,11 @@
 /* work - Роботи */
 
 .work {
-    @media screen and (max-width:$tablet) {
-        display: none;
+    display: none;
+    @media screen and (min-width:$desktop) {
+        display: block;
     }
-    
+
 }
 
 .work__container {

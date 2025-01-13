@@ -15,18 +15,33 @@
 .project__list {
     /* Шаблон для немаркированного списка */
     @extend %list;
+    
+    @media screen and (min-width:$tablet){
+        display: flex;
+        flex-direction: row;
+        /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
+        flex-wrap: wrap;
+        /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
+        gap: 30px;
+    }
 
-    display: flex;
-    flex-direction: row;
-    /* Если элементы не вмещаются в строку, то они перепрыгивают на следующую строку */
-    flex-wrap: wrap;
-    /* Расстояние между карточками (вертикальное и горизонтальное - одинаковое */
-    gap: 30px;
 }
 
 .project__link {
     /* Делаем ссылку блочным элементом */
     display: block;
+
+    @media screen and (min-width:$mobile) {
+        width: 450px;
+    }
+
+    @media screen and (min-width:$tablet) {
+        width: 354px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        width: 370px;
+    }
 
     /* Убираем подчеркивание для ссылки */
     text-decoration: none;
@@ -51,6 +66,7 @@
 .project__image {
     /* Делаем картинку блочным элементом, убирая расстояние снизу 4px, установленное по умолчанию */
     display: block;
+
 }
 
 /* Блок с картинкой */
