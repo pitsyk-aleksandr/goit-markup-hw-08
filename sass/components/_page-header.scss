@@ -4,12 +4,9 @@
 .page-header {
     /* Фиксированная верхняя строка меню */
     position: fixed;
-
     
     width: 100%;
     
- 
-
     top: 0;
     left: 0;
 
@@ -32,8 +29,10 @@
     flex-direction: row;
     /* Выравнивание всех элементов контейнера по второстепенной оси - по центру */
     align-items: center;
-    /* Выравнивание элементов по главной оси  */
+
     justify-content: space-between;
+
+
 
     /* Выравнивание по центру */
     margin-left: auto;
@@ -49,7 +48,7 @@
     background-color: transparent;
 
 
-    @media screen and (max-width: $tablet){
+    @media screen and (max-width: $tablet-1){
         display: inline-flex;
     }
     @media screen and (min-width: $tablet){
@@ -75,31 +74,74 @@
 
 }
 
+.menu-container {
 
+    /* Стили для планшета и ПК*/
+    @media screen and (min-width:$tablet) {
+            display: flex;
+            flex-direction: row;
+            /* Выравнивание всех элементов контейнера по второстепенной оси - по центру */
+            align-items: center;
+    }
+
+    
+    &.is-open{
+        display: block;
+    }
+
+    /* Стили для мобильного дизайна */
+    @media screen and (max-width: $tablet-1) {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+        
+        background-color: var(--main-white-color);
+    }
+
+
+
+}
 
 /* Стилизация меню .nav-site */
 .nav-site {
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: none;
+
+    @media (max-width: $tablet-1) {
+        display: flex;
+        flex-direction: column;
+        font-size: 40px;
+    }
         
     @media (min-width: $tablet) {
         display: flex;
         flex-direction: row;
+        font-size: 14px;
     }
+
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
 
     /* Расстояние между пунктами меню навигации */
     /* gap: 50px; */
 
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
+
 }
 
 .nav-site__item:not(:last-child) {
-    margin-right: 50px;
+
+    @media screen and (min-width: $tablet) {
+        margin-right: 50px;
+    }
 }
 
 .nav-site__link {
@@ -165,22 +207,35 @@
     /* Шаблон для немаркированного списка */
     @extend %list;
 
-    display: none;
-            
+    @media (max-width:$tablet-1) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        & .nav-email {
+            font-size: 24px;
+        }
+        & .nav-tel {
+            font-size: 34px;
+        }
+    }
+          
     @media (min-width: $tablet) {
         display: flex;
         flex-direction: column;
         /* Расстояние между пунктами меню навигации */
-        gap: 10px;
-        align-items:baseline;
+        // column-gap: 10px;
+        align-items:normal;
+        margin-left: 50px;
     }
 
     @media (min-width: $desktop) {
         display: flex;
         flex-direction: row;
-        /* Расстояние между пунктами меню навигации */
-        gap: 30px;
         align-items: center;
+        /* Расстояние между пунктами меню навигации */
+        // row-gap: 30px;
+        margin-left: 300px;
     }
 
 
@@ -190,9 +245,24 @@
     letter-spacing: 0.02em;
 }
 
+
 .nav-adress__link {
-    padding-top: 32px;
-    padding-bottom: 32px;
+    display: block;
+
+    @media screen and (max-width:$tablet-1) {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    @media screen and (min-width:$tablet) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    @media screen and (min-width:$desktop) {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
 
     /* Цвет текста в обычном состоянии */
     color: var(--main-text-color);
@@ -209,8 +279,14 @@
 }
 
 /* Расстояние между пунктами меню навигации - задаем через селектор соседа */
+
 .nav-adress__item+.nav-adress__item {
-    margin-left: 30px;
+    // @media screen and (max-width:$tablet-1) {
+    //     margin-top: 32px;
+    // }
+    @media screen and (min-width:$desktop) {
+        margin-left: 30px;
+    }
 }
 
 /* При наведении мышки или при получении фокуса - email & tel  */
@@ -222,6 +298,15 @@
 
 /* Иконка перед - email & tel */
 .nav-adress__icon {
+
+    @media screen and (max-width:$tablet-1) {
+        display: none;
+    }
+
+    @media screen and (min-width:$tablet) {
+        display: inline;
+    }
+
     /* Отступ иконки от пункта с адресом */
     margin-right: 10px;
 

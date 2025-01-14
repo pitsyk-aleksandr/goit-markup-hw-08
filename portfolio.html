@@ -46,19 +46,18 @@
         </button>
 
         <!-- Навигация - это ссылки на другие странички -->
-
-        <nav class="nav-menu">
+        <div class="menu-container" data-menu>
           <ul class="nav-site">
             <li class="nav-site__item">
-              <a
-                href="./index.html"
-                title="Основна сторінка"
-                class="nav-site__link nav-site__link--current"
-                >Студія</a
-              >
+              <a href="./index.html" title="Основна сторінка" class="nav-site__link">Студія</a>
             </li>
             <li class="nav-site__item">
-              <a href="./portfolio.html" title="Наші проекти" class="nav-site__link">Портфоліо</a>
+              <a
+                href="./portfolio.html"
+                title="Наші проекти"
+                class="nav-site__link nav-site__link--current"
+                >Портфоліо</a
+              >
             </li>
             <li class="nav-site__item">
               <a href="./button-icon.html" title="Наші контакти" class="nav-site__link">Контакти</a>
@@ -73,25 +72,26 @@
                 <a href="./form-input.html" title="form-input" class="nav-site__link">Вікно</a>
               </li> -->
           </ul>
-        </nav>
-        <ul class="nav-adress">
-          <li class="nav-adress__item">
-            <a href="mailto:info@devstudio.com" title="Напиши" class="nav-adress__link">
-              <svg width="16" height="10" class="nav-adress__icon">
-                <use href="./icon/icons.svg#icon-envelope"></use>
-              </svg>
-              info@devstudio.com</a
-            >
-          </li>
-          <li class="nav-adress__item">
-            <a href="tel:+380961111111" title="Подзвони" class="nav-adress__link">
-              <svg width="10" height="16" class="nav-adress__icon">
-                <use href="./icon/icons.svg#icon-smartphone"></use>
-              </svg>
-              +38 096 111 11 11</a
-            >
-          </li>
-        </ul>
+
+          <ul class="nav-adress">
+            <li class="nav-adress__item">
+              <a href="mailto:info@devstudio.com" title="Напиши" class="nav-adress__link">
+                <svg width="16" height="10" class="nav-adress__icon">
+                  <use href="./icon/icons.svg#icon-envelope"></use>
+                </svg>
+                <span class="nav-email">info@devstudio.com</span></a
+              >
+            </li>
+            <li class="nav-adress__item">
+              <a href="tel:+380961111111" title="Подзвони" class="nav-adress__link">
+                <svg width="10" height="16" class="nav-adress__icon">
+                  <use href="./icon/icons.svg#icon-smartphone"></use>
+                </svg>
+                <span class="nav-tel">+38 096 111 11 11</span></a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
@@ -406,5 +406,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- Ставим перед закрывающим тегом body -->
+    <!-- Файл по дабавлению класса is-open в кнопку мобильного меню -->
+    <script src="./js/menu.js"></script>
   </body>
 </html>
