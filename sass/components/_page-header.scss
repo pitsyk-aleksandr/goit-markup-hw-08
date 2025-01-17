@@ -76,6 +76,32 @@
 
 .menu-container {
 
+    /* Стили для мобильного дизайна */
+    @media screen and (max-width: $tablet-1) {
+        // display: none;
+    
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    
+        background-color: var(--main-white-color);
+
+        transform: translateY(-150%);
+        transition: transform 250ms linear;
+    
+        /* Для того чтобы не было глюков при переворачивании телефона горизонтально при открытом мобильном меню */
+        &.is-open {
+            // display: block;
+            transform: translateY(0);
+        }
+    }
+
     /* Стили для планшета и ПК*/
     @media screen and (min-width:$tablet) {
             display: flex;
@@ -84,36 +110,12 @@
             align-items: center;
     }
 
-    
-    &.is-open{
-        display: block;
-    }
-
-    /* Стили для мобильного дизайна */
-    @media screen and (max-width: $tablet-1) {
-        display: none;
-
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        
-        padding: 20px;
-        align-items: center;
-        text-align: center;
-        
-        background-color: var(--main-white-color);
-    }
-
-
-
 }
 
 /* Стилизация меню .nav-site */
 .nav-site {
     /* Шаблон для немаркированного списка */
     @extend %list;
-
 
     @media (max-width: $tablet-1) {
         display: flex;
@@ -133,12 +135,11 @@
 
     /* Расстояние между пунктами меню навигации */
     /* gap: 50px; */
-
-
 }
 
+/* Для всех пунктов меню, кроме последнего */
 .nav-site__item:not(:last-child) {
-
+    /* Расстояние между элементами меню навигации по сайту */
     @media screen and (min-width: $tablet) {
         margin-right: 50px;
     }

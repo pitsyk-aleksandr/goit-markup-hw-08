@@ -259,8 +259,33 @@ p {
 }
 
 .menu-container {
-  /* Стили для планшета и ПК*/
   /* Стили для мобильного дизайна */
+  /* Стили для планшета и ПК*/
+}
+@media screen and (max-width: 767px) {
+  .menu-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    background-color: var(--main-white-color);
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+    -webkit-transition: -webkit-transform 250ms linear;
+    transition: -webkit-transform 250ms linear;
+    transition: transform 250ms linear;
+    transition: transform 250ms linear, -webkit-transform 250ms linear;
+    /* Для того чтобы не было глюков при переворачивании телефона горизонтально при открытом мобильном меню */
+  }
+  .menu-container.is-open {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 @media screen and (min-width: 768px) {
   .menu-container {
@@ -275,24 +300,6 @@ p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-}
-.menu-container.is-open {
-  display: block;
-}
-@media screen and (max-width: 767px) {
-  .menu-container {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    text-align: center;
-    background-color: var(--main-white-color);
   }
 }
 
@@ -330,6 +337,10 @@ p {
   }
 }
 
+/* Для всех пунктов меню, кроме последнего */
+.nav-site__item:not(:last-child) {
+  /* Расстояние между элементами меню навигации по сайту */
+}
 @media screen and (min-width: 768px) {
   .nav-site__item:not(:last-child) {
     margin-right: 50px;
@@ -600,8 +611,66 @@ p {
   /* Фоновый рисункок */
   /* background-image: url(../images/hero.jpg); */
   /* Фоновый рисункок и затемнение градиентом */
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero.jpg);
-  background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero.jpg);
+  /* Размер картинки вписывается в блок, обрезая лишнее */
+  background-size: cover;
+  /* Медиа-запрос - выбор картинки для фона*/
+}
+@media screen and (max-width: 480px) {
+  .hero {
+    /* При обычной плотности физических пикселей на экране (96 dpi) */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-480.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-480.jpg);
+    /* При двойной плотности физических пикселей на экране >= 192 dpi */
+    /* При тройной плотности физических пикселей на экране >= 288 dpi */
+  }
+}
+@media screen and (max-width: 480px) and (min-device-pixel-ratio: 2), screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2), screen and (max-width: 480px) and (min-resolution: 192dpi), screen and (max-width: 480px) and (min-resolution: 2dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-480-2x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-480-2x.jpg);
+  }
+}
+@media screen and (max-width: 480px) and (min-device-pixel-ratio: 3), screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 3), screen and (max-width: 480px) and (min-resolution: 288dpi), screen and (max-width: 480px) and (min-resolution: 3dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-480-3x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-480-3x.jpg);
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-768.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-768.jpg);
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) and (min-device-pixel-ratio: 2), screen and (min-width: 480px) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 480px) and (max-width: 767px) and (min-resolution: 192dpi), screen and (min-width: 480px) and (max-width: 767px) and (min-resolution: 2dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-768-2x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-768-2x.jpg);
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) and (min-device-pixel-ratio: 3), screen and (min-width: 480px) and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 3), screen and (min-width: 480px) and (max-width: 767px) and (min-resolution: 288dpi), screen and (min-width: 480px) and (max-width: 767px) and (min-resolution: 3dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-768-3x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-768-3x.jpg);
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-1600.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-1600.jpg);
+  }
+}
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-1600-2x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-1600-2x.jpg);
+  }
+}
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 3), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 3), screen and (min-width: 768px) and (min-resolution: 288dpi), screen and (min-width: 768px) and (min-resolution: 3dppx) {
+  .hero {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(47, 48, 58, 0.4)), to(rgba(130, 132, 160, 0.4))), url(../images/hero-1600-3x.jpg);
+    background-image: linear-gradient(to bottom, rgba(47, 48, 58, 0.4) 50%, rgba(130, 132, 160, 0.4)), url(../images/hero-1600-3x.jpg);
+  }
 }
 
 .hero__title {
@@ -612,11 +681,20 @@ p {
   margin-bottom: 30px;
   color: var(--main-white-color);
   font-weight: 900;
-  font-size: 44px;
   line-height: 1.363;
   letter-spacing: 0.06em;
   /* Выравнивание этого текстового блока по центру */
   text-align: center;
+}
+@media screen and (max-width: 1199px) {
+  .hero__title {
+    font-size: 26px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .hero__title {
+    font-size: 44px;
+  }
 }
 
 .hero__button {
@@ -796,7 +874,7 @@ p {
 }
 
 /* Нижний отступ для мобильной версии */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .feature__item:not(:last-child) {
     margin-bottom: 30px;
   }
@@ -1008,7 +1086,7 @@ p {
 
 .team__photo {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   margin-bottom: 30px;
 }
@@ -1060,9 +1138,32 @@ p {
 }
 
 /* Блок логотипа с рамкой */
-.client__link {
+.client__item {
   width: 170px;
   height: 92px;
+  /* Отзывчивая верстка*/
+}
+@media screen and (min-width: 480px) {
+  .client__item {
+    width: 210px;
+    /* Отзывчивая верстка*/
+  }
+}
+@media screen and (min-width: 768px) {
+  .client__item {
+    width: 226px;
+    /* Отзывчивая верстка*/
+  }
+}
+@media screen and (min-width: 1200px) {
+  .client__item {
+    width: 170px;
+  }
+}
+
+.client__link {
+  width: 100%;
+  height: 100%;
   border-color: var(--stroke-client-color);
   border-style: solid;
   border-width: 1px;
@@ -1090,21 +1191,6 @@ p {
   /* - время перехода */
   -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
-}
-@media screen and (min-width: 480px) {
-  .client__link {
-    width: 210px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .client__link {
-    width: 226px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .client__link {
-    width: 170px;
-  }
 }
 
 /* Картинка с логотипом */
@@ -1333,6 +1419,10 @@ p {
 .project__image {
   /* Делаем картинку блочным элементом, убирая расстояние снизу 4px, установленное по умолчанию */
   display: block;
+  /* Изображение на всю ширину экрана*/
+  width: 100%;
+  /* При этом высота устанавливается автоматически*/
+  height: auto;
 }
 
 /* Блок с картинкой */
@@ -1576,7 +1666,7 @@ p {
   background-color: rgba(33, 150, 243, 0);
   /* color: rgba(255, 255, 255, 0.6); */
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
   .input-email-newsletter {
     width: 100%;
     margin-bottom: 20px;
@@ -1701,6 +1791,7 @@ p {
   -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 /* Фон в состоянии спрятанности (когда установлен класс .is-hidden) */
 .backdrop.is-hidden {
   /* Анимируемое свойство - прозрачность и backdrop, и вложенных элементов */
@@ -1715,18 +1806,13 @@ p {
   /* Состоит из 2- частей, указываемых через пробел */
   /* translate(-50%, -50%) - подцентрирование окна */
   /* scale(0) - масштабирование 0,8:1 */
-  -webkit-transform: translate(-50%, -50%) scale(0.8);
-          transform: translate(-50%, -50%) scale(0.8);
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
 }
 
 /* Обычное состояние модального окна */
 .form-modal {
   position: relative;
-  /* Минимальные размеры - ширина и высота */
-  width: 100%;
-  max-width: 450px;
-  /* Внутренние отступы */
-  padding: 25px;
   /* Радиус границы */
   border-radius: 4px;
   color: var(--second-text-color);
@@ -1743,13 +1829,17 @@ p {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1199px) {
   .form-modal {
     /* Абсолютное позиционирование */
     position: absolute;
     /* Центрирование модального окна */
     top: 90px;
     left: 50%;
+    width: 95%;
+    max-width: 450px;
+    /* Внутренние отступы */
+    padding: 25px;
     /* Анимируемое свойство - transform */
     /* Состоит из 2- частей, указываемых через пробел */
     /* translate(-50%, -50%) - подцентрирование окна */
@@ -1765,17 +1855,16 @@ p {
     /* Центрирование модального окна */
     top: 50%;
     left: 50%;
+    width: 100%;
+    max-width: 528px;
+    /* Внутренние отступы */
+    padding: 40px;
     /* Анимируемое свойство - transform */
     /* Состоит из 2- частей, указываемых через пробел */
     /* translate(-50%, -50%) - подцентрирование окна */
     /* scale(1) - масштабирование 1:1 */
     -webkit-transform: translate(-50%, -50%) scale(1);
             transform: translate(-50%, -50%) scale(1);
-  }
-}
-@media screen and (min-width: 1200px) {
-  .form-modal {
-    max-width: 528px;
   }
 }
 

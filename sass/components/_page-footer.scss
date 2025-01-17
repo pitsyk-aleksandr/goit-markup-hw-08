@@ -144,7 +144,7 @@
 /* Элемент input в footer */
 .input-email-newsletter {
 
-    @media screen and (max-width:$desktop) {
+    @media screen and (max-width:$desktop-1) {
         width: 100%;
         margin-bottom: 20px;
     }

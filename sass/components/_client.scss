@@ -21,22 +21,34 @@
 
 
 /* Блок логотипа с рамкой */
-.client__link {
-    
+.client__item {
     width: 170px;
+    height: 92px;
 
-    @media screen and (min-width:$mobile){
+    /* Отзывчивая верстка*/
+    // width: calc(100% - 30px * 2 ) / 2;
+
+    @media screen and (min-width:$mobile) {
         width: 210px;
+        /* Отзывчивая верстка*/
+        // width: calc(100% - 30px * 2) / 2;
     }
+
     @media screen and (min-width:$tablet) {
         width: 226px;
+        /* Отзывчивая верстка*/
+        // width: calc(100% - 30px*3)/3;
     }
+
     @media screen and (min-width:$desktop) {
         width: 170px;
     }
-                 
-    height: 92px;
-   
+}
+
+.client__link {
+    width: 100%;
+    height: 100%;
+       
     border-color: var(--stroke-client-color);
     border-style: solid;
     border-width: 1px;

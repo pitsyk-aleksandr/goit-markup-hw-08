@@ -49,7 +49,7 @@
 }
 
 /* Нижний отступ для мобильной версии */
-@media screen and (max-width:$tablet) {
+@media screen and (max-width:$tablet-1) {
     .feature__item:not(:last-child) {
         margin-bottom: 30px;
     }
